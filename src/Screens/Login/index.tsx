@@ -1,11 +1,11 @@
-import { Text, View} from 'native-base';
+import { Container, Text} from 'native-base';
 import React from 'react';
 
 const Login: React.FunctionComponent = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <Container>
       <Text>Login</Text>
-    </View>
+    </Container>
   );
 };
 
