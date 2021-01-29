@@ -1,5 +1,5 @@
-import { Button, Text, View} from 'native-base';
-import React, { useState } from 'react';
+import { View } from 'native-base';
+import React from 'react';
 import Styles from './styles'
 
 type IProps = {
