@@ -1,0 +1,44 @@
+import {StyleSheet} from 'react-native';
+
+type IProps = {
+    stepNumber?: number;
+};
+
+const Styles = (props?: IProps) => StyleSheet.create({
+progressBarContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 10   
+},
+    
+stepTrackerContainer: {
+    flex: 1,
+    flexDirection: 'row'
+},
+
+nextSteps: {
+    borderRadius: 100,
+    borderColor: '#EAB745',
+    borderWidth: 1,
+    width: 15,
+    height: 15
+},
+
+completedSteps: {
+    borderRadius: 100,
+    borderColor: '#EAB745',
+    borderWidth: 7.5,
+    width: 15,
+    height: 15
+},
+
+betweenSteps: {
+    borderColor: '#EAB745',
+    borderWidth: 0.5,
+    alignSelf: 'center',
+    flex: 1
+}
+
+});
+
+export default Styles;
