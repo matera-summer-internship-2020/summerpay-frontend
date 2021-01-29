@@ -8,9 +8,9 @@ type IProps = {
 };
 
 const StepTrackerView = (props: IProps) => {
-  let steps = [];
-  let keyCreator = 1;
-  for(let index = 1; index < props.currentStep; index++) {
+  let steps: JSX.Element[] = [];
+  let keyCreator: number = 1;
+  for(let index = 1; index < props.currentStep && index < props.numberOfSteps; index++) {
     steps.push(
       <View key={keyCreator} style={Styles.stepTrackerContainer}>
         <View key={keyCreator + 1} style={Styles.betweenSteps}/>
@@ -19,7 +19,7 @@ const StepTrackerView = (props: IProps) => {
     );
     keyCreator += 3;
   }
-  for(let index = props.currentStep; index < props.numberOfSteps; index++) {
+  for(let index = props.currentStep; index < props.numberOfSteps && index < props.numberOfSteps; index++) {
     steps.push(
       <View key={keyCreator} style={Styles.stepTrackerContainer}>
         <View key={keyCreator + 1} style={Styles.betweenSteps}/>

@@ -3,13 +3,13 @@ import {StyleSheet} from 'react-native';
 const Styles = StyleSheet.create({
 progressBarContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
     paddingVertical: 10   
 },
     
 stepTrackerContainer: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'center'
 },
 
 nextSteps: {
