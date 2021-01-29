@@ -12,25 +12,25 @@ const StepTrackerView = (props: IProps) => {
   let keyCreator = 1;
   for(let index = 1; index < props.currentStep; index++) {
     steps.push(
-      <View key={keyCreator} style={Styles().stepTrackerContainer}>
-        <View key={keyCreator + 1} style={Styles().betweenSteps}/>
-        <View key={keyCreator + 2} style={Styles().completedSteps}/>
+      <View key={keyCreator} style={Styles.stepTrackerContainer}>
+        <View key={keyCreator + 1} style={Styles.betweenSteps}/>
+        <View key={keyCreator + 2} style={Styles.completedSteps}/>
       </View>
     );
     keyCreator += 3;
   }
   for(let index = props.currentStep; index < props.numberOfSteps; index++) {
     steps.push(
-      <View key={keyCreator} style={Styles().stepTrackerContainer}>
-        <View key={keyCreator + 1} style={Styles().betweenSteps}/>
-        <View key={keyCreator + 2} style={Styles().nextSteps}/>
+      <View key={keyCreator} style={Styles.stepTrackerContainer}>
+        <View key={keyCreator + 1} style={Styles.betweenSteps}/>
+        <View key={keyCreator + 2} style={Styles.nextSteps}/>
       </View>
     );
     keyCreator += 3;
   }
   return (
-    <View style={Styles().stepTrackerContainer}>
-      <View key={0} style={Styles().completedSteps}/>
+    <View style={Styles.stepTrackerContainer}>
+      <View key={0} style={Styles.completedSteps}/>
       {steps}
     </View>
   )
@@ -41,7 +41,7 @@ const ProgressBar: React.FunctionComponent<IProps> = (props: IProps) => {
   let ProgressBarCreator = StepTrackerView(props);
   
   return (
-    <View style={Styles().progressBarContainer}>
+    <View style={Styles.progressBarContainer}>
       {ProgressBarCreator}
     </View>
   );

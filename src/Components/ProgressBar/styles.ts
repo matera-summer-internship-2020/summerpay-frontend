@@ -1,10 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-type IProps = {
-    stepNumber?: number;
-};
-
-const Styles = (props?: IProps) => StyleSheet.create({
+const Styles = StyleSheet.create({
 progressBarContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
