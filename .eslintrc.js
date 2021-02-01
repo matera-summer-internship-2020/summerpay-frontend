@@ -32,19 +32,35 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        types: {
+          Object: 'Avoid using the `Object` type. Did you mean `object`?',
+          Function: {
+            message: 'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.'
+          },
+          Boolean: {
+            message: 'Avoid using the `Boolean` type. Did you mean `boolean`?'
+          },
+          Number: {
+            message: 'Avoid using the `Number` type. Did you mean `number`?'
+          },
+          String: {
+            message: 'Avoid using the `String` type. Did you mean `string`?'
+          },
+          Symbol: {
+            message: 'Avoid using the `Symbol` type. Did you mean `symbol`?'
+          }
+        }
+      }
+    ],
+    '@typescript-eslint/no-unused-vars': 'warn',
     "import/no-unresolved": [
       2, 
       { "caseSensitive": false }
     ],
     "import/extensions": ["warn", "always", { "ts": "never", "tsx": "never" }],
-    "no-use-before-define": "off",
-    'max-len': [
-      'warn',
-      {
-        code: 120
-      }
-    ],
     'import/order': [
       'error',
       {
@@ -55,6 +71,24 @@ module.exports = {
         'newlines-between': 'always-and-inside-groups'
       }
     ],
+    'max-len': [
+      'warn',
+      {
+        code: 120
+      }
+    ],
+    "no-use-before-define": "off",
+    'no-underscore-dangle': 'off',
+    'no-multiple-empty-lines': 'error',
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'return'
+      }
+    ],
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
   },
   settings: {
     "import/resolver": {

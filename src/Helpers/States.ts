@@ -1,7 +1,7 @@
 import { SelectionData } from '../types';
 
-export const StatesList: SelectionData[] = [
-  { label: 'UF', value: ''},
+const StatesList: SelectionData[] = [
+  { label: 'UF', value: '' },
   { label: 'Acre', value: 'AC' },
   { label: 'Alagoas', value: 'AL' },
   { label: 'Amapá', value: 'AP' },
@@ -30,3 +30,5 @@ export const StatesList: SelectionData[] = [
   { label: 'Sergipe', value: 'SE' },
   { label: 'Tocantins', value: 'TO' }
 ];
+
+export default StatesList;

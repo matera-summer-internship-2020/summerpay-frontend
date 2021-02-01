@@ -12,4 +12,4 @@ export type ValueType = string | number;
 export type SelectionData = {
   label: string;
   value: ValueType;
-}
+};
