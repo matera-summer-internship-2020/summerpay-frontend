@@ -34,6 +34,7 @@ const GenericInput: React.FunctionComponent<IProps> = (props: IProps) => {
           keyboardType={props.keyboardType}
           maxLength={props.maxLength ? props.maxLength : 255}
           placeholder={props.placeholder}
+          placeholderTextColor={'rgba(252, 252, 252, 0.5)'}
           value={props.value}
           onChangeText={props.onChange}
         />
