@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import { color } from 'react-native-reanimated';
 
 const Styles = StyleSheet.create( {
   pickerStyle: {

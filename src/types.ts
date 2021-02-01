@@ -8,3 +8,10 @@ export type LoginScreenNavigationProp = StackNavigationProp<
   AppStackParamList,
   'Login'
 >;
+
+export type ValueType = string | number;
+
+export type SelectionData = {
+  label: string;
+  value: ValueType;
+}
