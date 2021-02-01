@@ -4,7 +4,7 @@ import Styles from './styles'
 
 type dataValue = {
   label: string;
-  value: string;
+  value: string | number;
 }
 
 interface Iprops {
