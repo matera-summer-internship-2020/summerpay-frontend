@@ -4,8 +4,8 @@ const Styles = StyleSheet.create( {
   pickerStyle: {
       width: '100%',
       height: 40,
-      color: "#0F0F0F"
+      color: "#FCFCFC"
   }
 })
 
-export default Styles
+export default Styles 

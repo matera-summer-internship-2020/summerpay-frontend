@@ -14,8 +14,7 @@ const SelectionInput: React.FunctionComponent<IProps> = (props: IProps) => {
   const [selectedValue, setSelectValue] = React.useState<ValueType>('');     // State
 
   const changeValue = (value: ValueType):void  => {  // Changes the selected value
-    setSelectValue(value);
-    props.selectedValue(value);
+    setSelectValue(value);  
   }   
 
   return (  
