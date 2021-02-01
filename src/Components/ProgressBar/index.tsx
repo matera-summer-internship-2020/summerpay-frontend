@@ -38,12 +38,10 @@ const StepTrackerView = (props: IProps) => {
 
 
 const ProgressBar: React.FunctionComponent<IProps> = (props: IProps) => {
-  let ProgressBarCreator: JSX.Element[] = [];
-  ProgressBarCreator.push(StepTrackerView(props));
-  
+
   return (
     <View style={Styles.progressBarContainer}>
-      {ProgressBarCreator}
+      {StepTrackerView(props)}
     </View>
   );
 };
