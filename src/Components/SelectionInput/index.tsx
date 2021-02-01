@@ -4,7 +4,7 @@ import Styles from './styles'
 import {valueType} from './types'
 import {selectionData} from './types'
 
-interface IProps {
+type IProps = {
   data: selectionData[];
   selectedValue: (value: valueType)  => void;
 }
