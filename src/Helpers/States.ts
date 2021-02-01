@@ -1,6 +1,7 @@
-import { State } from './types';
+import { SelectionData } from '../types';
 
-export const StatesList: State[] = [
+export const StatesList: SelectionData[] = [
+  { label: 'UF', value: ''},
   { label: 'Acre', value: 'AC' },
   { label: 'Alagoas', value: 'AL' },
   { label: 'Amapá', value: 'AP' },
