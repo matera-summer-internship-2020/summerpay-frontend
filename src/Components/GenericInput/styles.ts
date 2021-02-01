@@ -4,24 +4,27 @@ type IProps = {
   error?: boolean;
 };
 
-const Styles = (props:IProps) => StyleSheet.create({
-  container: {
-    backgroundColor: 'green',
-  },
+const Styles = (props?: IProps) =>
+  StyleSheet.create({
+    labelStyle: {
+      color: '#FCFCFC',
+      fontWeight: 'bold',
+    },
 
-  errorInput: {
-    borderBottomColor: props.error ? 'red' : 'black',
-  },
-});
- 
-// const Styles = (props: IProps) => StyleSheet.create({
-//   container: {
-//     backgroundColor: 'green',
-//   },
+    inputStyle: {
+      color: '#FCFCFC',
+    },
 
-//   errorInput: {
-//     borderBottomColor: props.error ? 'red' : 'black',
-//   }
-// });
+    underlineInputError: {
+      borderBottomColor: props?.error ? '#FF6E6E' : '#FCFCFC',
+      borderBottomWidth: 1,
+    },
+
+    messageInputError: {
+      marginTop: 8,
+      color: '#FF6E6E',
+      fontSize: 14,
+    },
+  });
 
 export default Styles;
