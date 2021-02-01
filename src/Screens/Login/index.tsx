@@ -1,5 +1,6 @@
 import { Button, Container, Text } from 'native-base';
 import React from 'react';
+
 import { CentralNavigationService } from '../../Services/Navigation';
 
 import { AppStackParamList } from '../../types';

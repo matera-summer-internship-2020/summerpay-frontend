@@ -1,24 +1,24 @@
-import {AppStatusActionTypes} from './types';
+import { AppStatusActionTypes } from './types';
 
 export const initialState: reducers.appStatusReducer = {
   appState: 'active',
-  stackState: '',
+  stackState: ''
 };
 
 export const appStatusReducer = (state = initialState, action: any) => {
-  const {payload} = action;
+  const { payload } = action;
 
   switch (action.type) {
     case AppStatusActionTypes.CHANGE_APP_STATE:
       return {
         ...state,
-        appState: payload,
+        appState: payload
       };
 
     case AppStatusActionTypes.CHANGE_STACK_STATE:
       return {
         ...state,
-        stackState: payload,
+        stackState: payload
       };
 
     default:
