@@ -1,27 +1,24 @@
 import {View, Item, Picker, Icon} from 'native-base';
 import React from 'react';
 import Styles from './styles'
+import {valueType} from './types'
+import {selectionData} from './types'
 
-type dataValue = {
-  label: string;
-  value: string | number;
+interface IProps {
+  data: selectionData[];
+  selectedValue: (value: valueType)  => void;
 }
 
-interface Iprops {
-  data: any[];
-  selectedValue: (value: string) => void;
-}
-
-const SelectionInput: React.FunctionComponent<Iprops> = (props: Iprops) => {
+const SelectionInput: React.FunctionComponent<IProps> = (props: IProps) => {
   
-  const [selectedValue, setSelectValue] = React.useState<string>('');     // State
+  const [selectedValue, setSelectValue] = React.useState<valueType>('');     // State
 
-  const changeValue = (value: string):void  => {  // Changes the selected value
+  const changeValue = (value: valueType):void  => {  // Changes the selected value
     setSelectValue(value);
     props.selectedValue(value);
   }   
 
-  return (
+  return (  
     <View>
       <Item picker>
         <Picker
