@@ -11,7 +11,7 @@ type IProps = {
   maxLength?: number;
   placeholder: string;
   value: string;
-  onChange: any;
+  onChange: (value: string) => void;
 };
 
 const GenericInput: React.FunctionComponent<IProps> = (props: IProps) => {
