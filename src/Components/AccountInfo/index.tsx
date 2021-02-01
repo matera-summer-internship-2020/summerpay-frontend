@@ -10,34 +10,36 @@ type IProps = {
   welcome: boolean;
 }
 
-const getFirstName = (userName: string): string => {
-
-  return userName.split(' ')[0];
-}
-
-const getLastName = (userName: string): string => {
-  let nameArray: string[]  = userName.split(' ');
-  return nameArray[nameArray.length - 1];
-}
-
-const getInicials = (userName: string): string => {
-  let names: string[] = userName.split(" ");
-
-  let inicials = names[0][0] + names[names.length - 1][0];
-  return inicials;
-}
-
-const hideInfo = (info: string): string => {
-  let l: number = info.length;
-
-  let mask: string = '****';
-  if (l === 4) {
-    mask = '**'
-  }
-  return mask + info.toString()[l - 2] + info.toString()[l - 1];
-}
 
 const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
+
+  const getFirstName = (userName: string): string => {
+
+    return userName.split(' ')[0];
+  }
+  
+  const getLastName = (userName: string): string => {
+    let nameArray: string[]  = userName.split(' ');
+    return nameArray[nameArray.length - 1];
+  }
+  
+  const getInicials = (userName: string): string => {
+    let names: string[] = userName.split(" ");
+  
+    let inicials = names[0][0] + names[names.length - 1][0];
+    return inicials;
+  }
+  
+  const hideInfo = (info: string): string => {
+    let l: number = info.length;
+  
+    let mask: string = '****';
+    if (l === 4) {
+      mask = '**'
+    }
+    return mask + info.toString()[l - 2] + info.toString()[l - 1];
+  }
+
   return (
     <View style={Styles.container}>
       <View style={Styles.circle}>
