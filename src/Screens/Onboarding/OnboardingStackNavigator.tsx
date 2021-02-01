@@ -10,20 +10,34 @@ const Stack = createNativeStackNavigator<OnboardingStackParamList>();
 
 const OnboardingNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Name">
-      <Stack.Screen
-        name="Name"
-        component={Name}
-        options={{
-          headerTitle: 'Nome',
-          headerStyle: {
-            backgroundColor: 'pink'
-          },
-          headerTintColor: '#FFF'
-        }}
-      />
-      <Stack.Screen name="Document" component={Document} />
-      <Stack.Screen name="Phone" component={Phone} />
+    <Stack.Navigator initialRouteName="Name" >
+      <Stack.Screen name="Name" component={Name} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Document" component={Document} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Phone" component={Phone} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
     </Stack.Navigator>
   );
 };

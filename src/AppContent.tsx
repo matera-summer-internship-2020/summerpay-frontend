@@ -34,8 +34,8 @@ const AppContent: React.FunctionComponent = () => {
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1 }}>
         <StatusBar translucent />
-        <KeyboardAvoidingView
-          style={{flex: 1, marginTop: StatusBar.currentHeight}}
+        <KeyboardAvoidingView 
+          style={{ flex: 1 }} 
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
           <BaseNavigationContainer
             ref={navigationRef}
@@ -45,7 +45,7 @@ const AppContent: React.FunctionComponent = () => {
           </BaseNavigationContainer>
         </KeyboardAvoidingView>
       </SafeAreaView>
-    </SafeAreaProvider>
+    </SafeAreaProvider> 
   );
 };
 
