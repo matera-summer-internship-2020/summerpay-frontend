@@ -3,52 +3,44 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './styles';
 
-interface IProps {
+type IProps = {
   userName: String;
-  agency: number;
-  account: number;
+  agency: String;
+  account: String;
   welcome: boolean;
   hideInfo: boolean;
 }
 
 const getFirstName = (userName: String): String => {
 
-  // generates list of names ("first_name", "second_name", "third_name", ...)
-  let names: String[] = userName.split(" ");
+  return userName.split(' ')[0];
+}
 
-  // selects first of list
-  return names[0];
+const getLastName = (userName: String): String => {
+  let nameArray: String[]  = userName.split(' ');
+  return nameArray[nameArray.length - 1];
 }
 
 const getInicials = (userName: String): String => {
   let names: String[] = userName.split(" ");
 
-  // Case only one name
-  if (names.length < 2) {
-    return names[0][0] + names[0][0];
-  }
-
-  // Case more than one name
-  let inicials = names[0][0] + names[1][0];
+  let inicials = names[0][0] + names[names.length - 1][0];
   return inicials;
 }
 
-const hideInfo = (info: number): String => {
-  let l = info.toString().length;
+const hideInfo = (info: String): String => {
+  let l: number = info.length;
 
-  if (l < 2) {
-    return "****" + info.toString()[l - 1];
+  let mask: string = '****';
+  if (l === 4) {
+    mask = '**'
   }
-
-  let hiddenInfo = info.toString()[l - 1] + info.toString()[l - 2];
-
-  
-  return "***" + hiddenInfo;
+  return mask + info.toString()[l - 2] + info.toString()[l - 1];
 }
 
 const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
   return (
-    <TouchableOpacity style={Styles.container}>
+    <View style={Styles.container}>
       <View style={Styles.circle}>
         <Text style={Styles.inicials}>{getInicials(props.userName)}</Text>
       </View>
@@ -58,7 +50,7 @@ const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
           // case welcome message must be displayed
           ? <Text style={Styles.nameLine}>Bem vindo, {getFirstName(props.userName)}</Text> 
           // otherwise
-          : <Text style={Styles.nameLine}>{props.userName}</Text>
+          : <Text style={Styles.nameLine}>{getFirstName(props.userName) + " " + getLastName(props.userName)}</Text>
         }
         {
           props.hideInfo
@@ -68,7 +60,7 @@ const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
           : <Text style={Styles.infoLine}> ag {props.agency} c/c {props.account} </Text>
         }
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 
