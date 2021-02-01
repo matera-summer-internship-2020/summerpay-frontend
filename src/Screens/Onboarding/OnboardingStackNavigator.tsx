@@ -10,8 +10,18 @@ const Stack = createNativeStackNavigator<OnboardingStackParamList>();
 
 const OnboardingNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Name" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Name" component={Name} />
+    <Stack.Navigator initialRouteName="Name">
+      <Stack.Screen
+        name="Name"
+        component={Name}
+        options={{
+          headerTitle: 'Nome',
+          headerStyle: {
+            backgroundColor: 'pink'
+          },
+          headerTintColor: '#FFF'
+        }}
+      />
       <Stack.Screen name="Document" component={Document} />
       <Stack.Screen name="Phone" component={Phone} />
     </Stack.Navigator>
