@@ -48,7 +48,7 @@ const hideInfo = (info: number): String => {
 
 const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
   return (
-    <View style={Styles.container}>
+    <TouchableOpacity style={Styles.container}>
       <View style={Styles.circle}>
         <Text style={Styles.inicials}>{getInicials(props.userName)}</Text>
       </View>
@@ -68,7 +68,7 @@ const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
           : <Text style={Styles.infoLine}> ag {props.agency} c/c {props.account} </Text>
         }
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
