@@ -4,31 +4,30 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Styles from './styles';
 
 type IProps = {
-  userName: String;
-  agency: String;
-  account: String;
+  userName: string;
+  agency: string;
+  account: string;
   welcome: boolean;
-  hideInfo: boolean;
 }
 
-const getFirstName = (userName: String): String => {
+const getFirstName = (userName: string): string => {
 
   return userName.split(' ')[0];
 }
 
-const getLastName = (userName: String): String => {
-  let nameArray: String[]  = userName.split(' ');
+const getLastName = (userName: string): string => {
+  let nameArray: string[]  = userName.split(' ');
   return nameArray[nameArray.length - 1];
 }
 
-const getInicials = (userName: String): String => {
-  let names: String[] = userName.split(" ");
+const getInicials = (userName: string): string => {
+  let names: string[] = userName.split(" ");
 
   let inicials = names[0][0] + names[names.length - 1][0];
   return inicials;
 }
 
-const hideInfo = (info: String): String => {
+const hideInfo = (info: string): string => {
   let l: number = info.length;
 
   let mask: string = '****';
@@ -53,7 +52,7 @@ const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
           : <Text style={Styles.nameLine}>{getFirstName(props.userName) + " " + getLastName(props.userName)}</Text>
         }
         {
-          props.hideInfo
+          props.welcome
           // case agency and account info must be hidden
           ? <Text style={Styles.infoLine}> ag {hideInfo(props.agency)} c/c {hideInfo(props.account)} </Text>
           // otherwise
