@@ -5,7 +5,7 @@ const Styles = StyleSheet.create( {
   pickerStyle: {
       width: '100%',
       height: 40,
-      color: "#00fa"
+      color: "#0F0F0F"
   }
 })
 
