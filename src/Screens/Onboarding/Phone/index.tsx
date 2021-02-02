@@ -48,7 +48,7 @@ const Phone: React.FunctionComponent<IProps> = (props: IProps) => {
           ) 
           : (
             <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-              <ButtonComponent size={'m'} disabled={true} mainButton={true} text={'Pŕoximo'} onPress={onPress} />
+              <ButtonComponent size={'m'} disabled={true} mainButton={true} text={'Próximo'} onPress={onPress} />
             </View>
           )}
         </Container>
