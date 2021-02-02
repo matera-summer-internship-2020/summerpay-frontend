@@ -1,34 +1,24 @@
 module.exports = {
   env: {
     es6: true,
+    node: true
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
     'prettier/@typescript-eslint'
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
   },
   plugins: [
     'eslint-plugin-import',
-    'eslint-plugin-jsdoc',
     'eslint-plugin-prefer-arrow',
     'eslint-plugin-react',
     'unused-imports',
-    'react',
     '@typescript-eslint',
   ],
   rules: {
@@ -51,16 +41,27 @@ module.exports = {
           },
           Symbol: {
             message: 'Avoid using the `Symbol` type. Did you mean `symbol`?'
-          }
+          },
+          object: false,
+          "{}": false
         }
       }
     ],
     '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'warn',
+    '@typescript-eslint/require-await': 'warn',
+    '@typescript-eslint/no-floating-promises': 'warn',
+    '@typescript-eslint/restrict-plus-operands': 'warn',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
     "import/no-unresolved": [
       2, 
       { "caseSensitive": false }
     ],
-    "import/extensions": ["warn", "always", { "ts": "never", "tsx": "never" }],
     'import/order': [
       'error',
       {
@@ -89,6 +90,13 @@ module.exports = {
       }
     ],
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        markers: ['/']
+      }
+    ],
   },
   settings: {
     "import/resolver": {

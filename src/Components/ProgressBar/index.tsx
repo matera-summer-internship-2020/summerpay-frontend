@@ -10,8 +10,8 @@ type IProps = {
 
 const StepTrackerView = (props: IProps) => {
   const steps: JSX.Element[] = [];
-  let keyCreator: number = 2;
-  for (let index: number = 1; index < props.currentStep && index < props.numberOfSteps; index++) {
+  let keyCreator = 2;
+  for (let index = 1; index < props.currentStep && index < props.numberOfSteps; index++) {
     steps.push(
       <View key={keyCreator} style={Styles.stepTrackerContainer}>
         <View key={keyCreator + 1} style={Styles.betweenSteps} />

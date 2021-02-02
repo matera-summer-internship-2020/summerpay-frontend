@@ -34,13 +34,13 @@ declare type StackNavigationProp<ParamList extends ParamListBase> = {
 export const navigationRef: any = React.createRef();
 const routeNameRef: any = React.createRef();
 
-const getActiveRouteName: any = (state: any) => {
+const getActiveRouteName = (state: any): string => {
   const route = state.routes[state.index];
   if (route.state) {
     return getActiveRouteName(route.state);
   }
 
-  return route.name;
+  return route.name as string;
 };
 
 export const saveCurrentRoute = (state: any) => {
@@ -64,7 +64,7 @@ export const CentralNavigationService = <T extends Record<string, object | undef
     const params = args.length > 1 ? args[1] : {};
 
     if (navigationRef.current) {
-      navigationRef.current.navigate(routeName, params);
+      await navigationRef.current.navigate(routeName, params);
     }
   },
   popToTop: async (...args: any[]) => {
@@ -77,14 +77,14 @@ export const CentralNavigationService = <T extends Record<string, object | undef
       const routes = params ? [{ name: routeName, params }] : [{ name: routeName }];
 
       if (firstScreen && firstScreen.length > 0) {
-        navigationRef.current.dispatch(
+        await navigationRef.current.dispatch(
           CommonActions.reset({
             index,
             routes: [{ name: firstScreen }, ...routes]
           })
         );
       } else {
-        navigationRef.current.dispatch(
+        await navigationRef.current.dispatch(
           CommonActions.reset({
             index,
             routes

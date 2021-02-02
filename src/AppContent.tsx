@@ -10,8 +10,8 @@ import { changeAppStateAction } from './Ducks/AppStatus/Actions';
 import { navigationRef, saveCurrentRoute } from './Services/Navigation';
 
 const AppContent: React.FunctionComponent = () => {
-  const stackState: any = useSelector((state: any): any => state.appStatus.stackState);
-  const dispatch: any = useDispatch();
+  const stackState: string = useSelector((state: any): string => state.appStatus.stackState as string);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     AppState.addEventListener('change', _handleAppStateChange);
@@ -20,7 +20,6 @@ const AppContent: React.FunctionComponent = () => {
       AppState.removeEventListener('change', _handleAppStateChange);
     };
   }, []);
-
   const _handleAppStateChange = (nextAppState: any): void => {
     dispatch(changeAppStateAction(nextAppState));
   };

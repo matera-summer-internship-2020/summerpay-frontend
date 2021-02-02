@@ -47,13 +47,13 @@ export const cepMask = (value: string) => {
 
 export const toCurrency = (valueStr: string) => {
   const isNegative: boolean = parseFloat(valueStr) < 0;
-  const currencySymbol: string = 'R$';
-  const numberDecimalPlaces: number = 2;
-  const decimalSeparator: string = ',';
-  const thousandSeparator: string = '.';
+  const currencySymbol = 'R$';
+  const numberDecimalPlaces = 2;
+  const decimalSeparator = ',';
+  const thousandSeparator = '.';
 
   if (valueStr.split(',').length === 1 && valueStr.split('.').length === 1) {
-    valueStr = `${parseFloat(valueStr) + decimalSeparator}00`;
+    valueStr = `${parseFloat(valueStr)}${decimalSeparator}00`;
   }
 
   if (decimalSeparator === ',') {

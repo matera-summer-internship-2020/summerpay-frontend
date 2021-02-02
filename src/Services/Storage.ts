@@ -12,7 +12,7 @@ export const getData = async (key: StorageKey): Promise<string> => {
 
 export const storeData = async (key: StorageKey, value: string): Promise<void> => {
   try {
-    SInfo.setItem(key, value, {});
+    await SInfo.setItem(key, value, {});
   } catch (error) {}
 };
 
