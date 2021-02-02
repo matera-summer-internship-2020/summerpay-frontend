@@ -7,7 +7,7 @@ import { AppStackParamList } from '../../types';
 import Styles from './styles';
 import GenericInput from '../../Components/GenericInput';
 import {cpfMask} from '../../Helpers/Masks';
-import Logo from '../../Assets/Images/logo.png';
+import Logo from '../../Assets/Images/logo.svg';
 
 const Login: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
@@ -32,6 +32,7 @@ const Login: React.FunctionComponent = () => {
 
   return (
     <Container style={Styles().mainContainer}>
+      <Logo height={'200'} width={'200'} />
       <View style={Styles().viewFakeLogo}/>
       <View style={Styles().viewLoginData}>
       <Text style={Styles().textTitle}>Acesse sua conta</Text>
