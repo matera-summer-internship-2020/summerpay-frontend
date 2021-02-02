@@ -24,7 +24,7 @@ const GenericInput: React.FunctionComponent<IProps> = (props: IProps) => {
       {props.label ? (
         <Text style={Styles().labelStyle}>{props.label}</Text>
       ) : (
-        ''
+        null
       )}
       <Item underline style={Styles({error: hasError()}).underlineInputError}>
         <Input
