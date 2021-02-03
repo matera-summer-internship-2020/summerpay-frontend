@@ -4,12 +4,19 @@ import ButtonComponent from '../../../Components/ButtonComponent';
 import GenericInput from '../../../Components/GenericInput';
 import ProgressBar from '../../../Components/ProgressBar';
 import Styles from './styles';
+import { CentralNavigationService } from '../../../Services/Navigation'
+import { OnboardingStackParamList } from '../types';
 
 const Name: React.FunctionComponent = () => {
   const [inputValue, setInputValue] = React.useState<string>('');
+  const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
 
   const onChange = (value: string): void => {
     setInputValue(value);
+  };
+
+  const onPress = (): void => {
+    // centralNavigationService.navigate('Document')
   };
 
   return (
