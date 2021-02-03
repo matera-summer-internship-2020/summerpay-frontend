@@ -32,6 +32,7 @@ const Phone: React.FunctionComponent = () => {
           </Text>
           <View style={Styles.inputView}>
             <GenericInput
+              maxLength={15}
               keyboardType={'numeric'}
               placeholder={'(00) 0000-0000'}
               value={phoneMask(inputValue)}
