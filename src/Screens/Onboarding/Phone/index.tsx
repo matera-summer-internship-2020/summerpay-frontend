@@ -39,17 +39,13 @@ const Phone: React.FunctionComponent = () => {
               onChange={onChange}
             />
           </View>
-          {inputValue.length >=  14
-          ? (
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-              <ButtonComponent size={'m'} disabled={false} mainButton={true} text={'Próximo'} onPress={onPress} />
-            </View>
-          ) 
-          : (
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-              <ButtonComponent size={'m'} disabled={true} mainButton={true} text={'Próximo'} onPress={onPress} />
-            </View>
-          )}
+          <ButtonComponent 
+            size={'m'} 
+            disabled={inputValue.length >= 14 ? false : true} 
+            mainButton={true} 
+            text={'Próximo'} 
+            onPress={onPress} 
+          />
         </Container>
     </Container>
   );
