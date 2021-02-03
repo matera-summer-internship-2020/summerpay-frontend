@@ -1,33 +1,31 @@
-import { Button, Container, Text, View } from 'native-base';
+import { Container, Text, View } from 'native-base';
 import React from 'react';
 import GenericInput from '../../../Components/GenericInput'
 import ProgressBar from '../../../Components/ProgressBar'
 import Styles from './styles'
 import {phoneMask} from '../../../Helpers/Masks'
 import ButtonComponent from '../../../Components/ButtonComponent'
+import { CentralNavigationService } from '../../../Services/Navigation'
+import { OnboardingStackParamList } from '../types';
 
-type IProps = {
-  disabled: boolean,
-  textColor: string,
-  buttonColor: string,
-};
-
-const Phone: React.FunctionComponent<IProps> = (props: IProps) => {
+const Phone: React.FunctionComponent = () => {
 
   const [inputValue, setInputValue] = React.useState<string>('');
+
+  const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
 
   const onChange = (value: string): void => {
     setInputValue(value);
   };
 
   const onPress = (): void => {
-    // centralNavigationService.navigate('Phone')
+    // centralNavigationService.navigate('MaritalStatus')
   };
 
 
   return (
     <Container style={Styles.container}>
-        <ProgressBar currentStep={4} numberOfSteps={7}/>
+        <ProgressBar currentStep={3} numberOfSteps={7}/>
         <Container style={Styles.inputAndLabelContainer}>
           <Text style={Styles.instructionText}>
             Qual seu número de celular e DDD?
