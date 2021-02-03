@@ -1,5 +1,6 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import ProgressBar from '../../../Components/ProgressBar/index'
 import GenericInput from '../../../Components/GenericInput/index'
 import ButtonComponent from '../../../Components/ButtonComponent/index'
@@ -8,16 +9,31 @@ import { cpfValidator } from '../../../Helpers/CpfValidator';
 import Styles from './styles'
 import { CentralNavigationService } from '../../../Services/Navigation'
 import { OnboardingStackParamList } from '../types';
+import { changeIdentityDocumentEntityListAction } from '../../../Ducks/Onboarding/Actions';
+import { identityDocumentEntity } from '../../../types';
 
 const Document: React.FunctionComponent = () => {
   const [inputValue, setInputValue] = React.useState<string>('');
   const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
+  const identityDocumentEntityList: identityDocumentEntity[] = useSelector(
+    (state: any): identityDocumentEntity[] => state.onboarding.identityDocumentEntityList);
+  const dispatch = useDispatch();
 
   const onChange = (value: string): void => {
     setInputValue(value);
   };
 
   const onPress = (): void => {
+    const newIdentityDocumentEntityList: identityDocumentEntity[] = [
+      ...identityDocumentEntityList,
+      {
+        identityDocumentTypeEntity: {
+          identityDocumentTypeId: 2
+        },
+        identityDocument: inputValue.replace(/\D/g, '')
+      }
+    ]
+    dispatch(changeIdentityDocumentEntityListAction(newIdentityDocumentEntityList));
     // TODO uncomment when the phone screen is created
     // centralNavigationService.navigate('Phone')
   };

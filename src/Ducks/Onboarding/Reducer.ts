@@ -2,7 +2,8 @@ import { OnboardingActionTypes } from './types';
 import { onboardingReducerType } from '../types';
 
 export const initialState: onboardingReducerType = {
-  name: ''
+  name: '',
+  identityDocumentEntityList: [],
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {
@@ -13,6 +14,12 @@ export const onboardingReducer = (state = initialState, action: any) => {
       return {
         ...state,
         name: payload
+      };
+
+    case OnboardingActionTypes.CHANGE_IDENTITY_DOCUMENT_ENTITY_LIST:
+      return {
+        ...state,
+        identityDocumentEntityList: payload
       };
 
     default:

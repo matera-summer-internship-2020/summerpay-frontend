@@ -13,3 +13,10 @@ export type SelectionData = {
   label: string;
   value: ValueType;
 }
+
+export type identityDocumentEntity = {
+  identityDocumentTypeEntity: {
+    identityDocumentTypeId: number
+  },
+  identityDocument: string
+}
