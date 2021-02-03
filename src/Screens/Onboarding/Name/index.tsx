@@ -27,7 +27,7 @@ const Name: React.FunctionComponent = () => {
         <View style={Styles.inputView}>
           <GenericInput keyboardType='default' placeholder='Nome completo' value={inputValue} onChange={onChange}/>
         </View>
-        <ButtonComponent disabled={inputValue.length < 2} mainButton={true} text="Próximo" size='m' onPress={() => {}}/>
+        <ButtonComponent disabled={inputValue.length < 2} mainButton={true} text="Próximo" size='m' onPress={onPress}/>
       </Container>
     </Container>
   );
