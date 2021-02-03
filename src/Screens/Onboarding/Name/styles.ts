@@ -10,8 +10,8 @@ const Styles = StyleSheet.create({
       },
       instructionText: {
         fontSize: 24,
-        width: '80%',
-        color: '#fcfcfc',
+        width: '82%',
+        color: '#FCFCFC',
         
       },
       inputAndLabelContainer: {
