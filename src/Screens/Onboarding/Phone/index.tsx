@@ -41,7 +41,7 @@ const Phone: React.FunctionComponent = () => {
           </View>
           <ButtonComponent 
             size={'m'} 
-            disabled={inputValue.length >= 14 ? false : true} 
+            disabled={!(inputValue.length >= 14)} 
             mainButton={true} 
             text={'Próximo'} 
             onPress={onPress} 
