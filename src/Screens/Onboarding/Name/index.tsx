@@ -18,9 +18,7 @@ const Name: React.FunctionComponent = () => {
       <Container style={Styles.inputAndLabelContainer}>
         <Text style={Styles.instructionText}>Para começar, qual é o seu nome completo?</Text>
         <View style={Styles.inputView}>
-          <GenericInput keyboardType='default' placeholder='Nome completo' error={
-              inputValue.length < 2 ? 'Nome inválido' : ''
-            } value={inputValue} onChange={onChange}/>
+          <GenericInput keyboardType='default' placeholder='Nome completo' value={inputValue} onChange={onChange}/>
         </View>
         <ButtonComponent disabled={inputValue.length < 2} mainButton={true} text="Próximo" size='m' onPress={() => {}}/>
       </Container>
