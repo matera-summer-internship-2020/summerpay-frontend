@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import { round } from 'react-native-reanimated';
 
 const Styles = StyleSheet.create( {
        container: {
