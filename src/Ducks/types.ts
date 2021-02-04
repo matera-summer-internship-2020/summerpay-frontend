@@ -1,4 +1,4 @@
-import { TelephoneType } from '../types'
+import { Telephone } from '../types'
 
 export type appStatusReducerType = {
   appState: string;
@@ -7,7 +7,7 @@ export type appStatusReducerType = {
 
 export type onboardingReducerType = {
   name: string;
-  phone: TelephoneType;
+  phone: Telephone;
 };
 
 export type root = {
