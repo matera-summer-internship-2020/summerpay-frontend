@@ -5,6 +5,7 @@ export type OnboardingStackParamList = {
   Name: undefined;
   Phone: undefined;
   Address: undefined;
+  Password: undefined;
 };
 
 export type OnboardingScreenNavigationProp = StackNavigationProp<OnboardingStackParamList, 'Document'>;
