@@ -27,6 +27,14 @@ const Name: React.FunctionComponent = () => {
     // centralNavigationService.navigate('Document');
   };
 
+  const validateInput = (input: string): boolean => {
+    let names: string[] = input.split(" ").filter(i => i.length > 1);
+    if (names.length > 1) {
+      return true;
+    }
+    return false;
+  }
+
   return (
     <Container style={Styles.container}>
       <ProgressBar currentStep={1} numberOfSteps={7}/>
@@ -35,7 +43,7 @@ const Name: React.FunctionComponent = () => {
         <View style={Styles.inputView}>
           <GenericInput keyboardType='default' placeholder='Nome completo' value={inputValue} onChange={onChange}/>
         </View>
-        <ButtonComponent disabled={inputValue.length < 2} mainButton={true} text="Próximo" size='m' onPress={onPress}/>
+        <ButtonComponent disabled={!validateInput(inputValue)} mainButton={true} text="Próximo" size='m' onPress={onPress}/>
       </Container>
     </Container>
   );
