@@ -7,6 +7,8 @@ import {phoneMask} from '../../../Helpers/Masks'
 import ButtonComponent from '../../../Components/ButtonComponent'
 import { CentralNavigationService } from '../../../Services/Navigation'
 import { OnboardingStackParamList } from '../types';
+import { changePhoneAction } from '../../../Ducks/Onboarding/Actions'
+import {useDispatch} from 'react-redux'
 
 const Phone: React.FunctionComponent = () => {
 
@@ -14,14 +16,16 @@ const Phone: React.FunctionComponent = () => {
 
   const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
 
+  const dispatch = useDispatch();
+
   const onChange = (value: string): void => {
-    setInputValue(value);
+    setInputValue(value)
   };
 
   const onPress = (): void => {
+    dispatch(changePhoneAction(inputValue.replace(/\D/g, '')));
     // centralNavigationService.navigate('MaritalStatus')
   };
-
 
   return (
     <Container style={Styles.container}>
