@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator<OnboardingStackParamList>();
 
 const OnboardingNavigator = () => {
   return (
-    <Stack.Navigator initialRouteName="Password" >
+    <Stack.Navigator initialRouteName="Name" >
       <Stack.Screen name="Name" component={Name} 
       options={{
         headerTitle: 'Criar conta',

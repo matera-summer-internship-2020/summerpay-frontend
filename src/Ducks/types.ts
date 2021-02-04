@@ -12,6 +12,7 @@ export type onboardingReducerType = {
   phone: Telephone;
   identityDocumentEntityList: identityDocumentEntity[];
   address: AddressEntity;
+  password: string;
 };
 
 export type loginReducerType = {

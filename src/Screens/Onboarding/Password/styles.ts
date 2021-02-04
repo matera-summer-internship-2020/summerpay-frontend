@@ -11,16 +11,23 @@ const Styles = StyleSheet.create( {
         fontSize: 24,
         width: '100%',
         color: '#FCFCFC',
+        // backgroundColor: 'red'
     },
-    inputAndLabelContainer: {
-        backgroundColor: '#002D80',
+    inputAndLabelView: {
+        // backgroundColor: 'green',
         width: '80%',
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
         alignItems: 'center',
+        justifyContent: 'space-evenly',
+        flex: 1,
+        paddingVertical: '10%'
     },
     inputView: {
         width: '60%',
+        // backgroundColor: 'pink',
+        marginVertical: '8%'
+    },
+    individualInputView: {
+        marginVertical: '10%'
     }
 })
 
