@@ -30,8 +30,8 @@ const Login: React.FunctionComponent = () => {
     setPasswordValue(value);
   };
 
-  const onLoginPress = (clientCPF: string): void => {
-    dispatch(changeClientCpfAction(clientCPF));
+  const onLoginPress = (): void => {
+    dispatch(changeClientCpfAction(cpfValue.replace(/\D/g, '')));
   };
 
   return (
@@ -67,7 +67,7 @@ const Login: React.FunctionComponent = () => {
         disabled={disableLogin(cpfValue, passwordValue)} 
         mainButton={true} 
         text={'Entrar'} 
-        onPress={() => onLoginPress(cpfValue.replace(/\D/g, ''))}
+        onPress={onLoginPress}
         />
       </View>
       <Text style={Styles.textSignIn}>Não possui conta ainda?</Text>
