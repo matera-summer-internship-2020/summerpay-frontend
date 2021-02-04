@@ -6,10 +6,15 @@ import ProgressBar from '../../../Components/ProgressBar';
 import Styles from './styles';
 import { CentralNavigationService } from '../../../Services/Navigation'
 import { OnboardingStackParamList } from '../types';
+import {useDispatch} from 'react-redux';
+
+import {changeNameAction} from '../../../Ducks/Onboarding/Actions';
 
 const Name: React.FunctionComponent = () => {
   const [inputValue, setInputValue] = React.useState<string>('');
   const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
+
+  const dispatch: any = useDispatch();
 
   const onChange = (value: string): void => {
     setInputValue(value);
@@ -17,6 +22,8 @@ const Name: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     // centralNavigationService.navigate('Document')
+
+    dispatch(changeNameAction(inputValue));
   };
 
   return (
