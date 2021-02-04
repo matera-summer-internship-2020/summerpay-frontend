@@ -1,3 +1,5 @@
+import { TelephoneType } from '../types'
+
 export type appStatusReducerType = {
   appState: string;
   stackState: string;
@@ -5,7 +7,7 @@ export type appStatusReducerType = {
 
 export type onboardingReducerType = {
   name: string;
-  phone: string;
+  phone: TelephoneType;
 };
 
 export type root = {

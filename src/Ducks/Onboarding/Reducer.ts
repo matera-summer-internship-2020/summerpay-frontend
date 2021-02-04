@@ -3,7 +3,13 @@ import { onboardingReducerType } from '../types';
 
 export const initialState: onboardingReducerType = {
   name: '',
-  phone: ''
+  phone: {
+    telephoneType: {
+      telephoneTypeId: 0
+    },
+    number: '',
+    ddd: '',
+  },
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {

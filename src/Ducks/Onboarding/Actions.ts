@@ -1,3 +1,4 @@
+import { Telephone } from '../../types';
 import { OnboardingActionTypes } from './types';
 
 export const changeNameAction = (payload: string) => ({
@@ -5,7 +6,8 @@ export const changeNameAction = (payload: string) => ({
   type: OnboardingActionTypes.CHANGE_NAME
 });
 
-export const changePhoneAction = (payload: string) => ({
-  payload,
-  type: OnboardingActionTypes.CHANGE_PHONE
+export const changePhoneAction = (
+  payload: Telephone) => ({
+    payload,
+    type: OnboardingActionTypes.CHANGE_PHONE
 });

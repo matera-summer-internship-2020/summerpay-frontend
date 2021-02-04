@@ -13,3 +13,11 @@ export type SelectionData = {
   label: string;
   value: ValueType;
 }
+
+export type Telephone = {
+  "telephoneType": {
+  "telephoneTypeId": number
+  },
+  "number": string,
+  "ddd": string 
+}

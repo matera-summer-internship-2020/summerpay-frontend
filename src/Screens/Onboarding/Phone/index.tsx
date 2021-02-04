@@ -9,6 +9,7 @@ import { CentralNavigationService } from '../../../Services/Navigation'
 import { OnboardingStackParamList } from '../types';
 import { changePhoneAction } from '../../../Ducks/Onboarding/Actions'
 import {useDispatch} from 'react-redux'
+import { Telephone } from '../../../types'
 
 const Phone: React.FunctionComponent = () => {
 
@@ -23,7 +24,17 @@ const Phone: React.FunctionComponent = () => {
   };
 
   const onPress = (): void => {
-    dispatch(changePhoneAction(inputValue.replace(/\D/g, '')));
+    const unmaskedNumber = inputValue.replace(/\D/g, '')
+    const newTelephoneType: Telephone = {
+      telephoneType: {
+        telephoneTypeId: 2
+      },
+      number: unmaskedNumber.substring(2, unmaskedNumber.length),
+      ddd: unmaskedNumber.substring(0, 2) 
+    }
+
+    dispatch(changePhoneAction(newTelephoneType));
+
     // centralNavigationService.navigate('MaritalStatus')
   };
 
