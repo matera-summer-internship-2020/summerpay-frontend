@@ -21,9 +21,10 @@ const Name: React.FunctionComponent = () => {
   };
 
   const onPress = (): void => {
-    // centralNavigationService.navigate('Document')
 
     dispatch(changeNameAction(inputValue));
+
+    // centralNavigationService.navigate('Document');
   };
 
   return (
