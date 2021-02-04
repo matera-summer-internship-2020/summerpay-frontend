@@ -29,10 +29,8 @@ const Name: React.FunctionComponent = () => {
 
   const validateInput = (input: string): boolean => {
     let names: string[] = input.split(" ").filter(i => i.length > 1);
-    if (names.length > 1) {
-      return true;
-    }
-    return false;
+    
+    return names.length > 1
   }
 
   return (
