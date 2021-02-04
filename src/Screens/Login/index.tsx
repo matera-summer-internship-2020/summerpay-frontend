@@ -42,26 +42,28 @@ const Login: React.FunctionComponent = () => {
       </View>
       <View style={Styles.viewLoginData}>
         <Text style={Styles.textTitle}>Acesse sua conta</Text>
-        <GenericInput 
-          disabled={false}
-          keyboardType={'numeric'}
-          label={'CPF'}
-          maxLength={14}
-          placeholder={'000.000.000-00'}
-          value={cpfMask(cpfValue)}
-          onChange={onCpfChange}
-          />
-        <View style={{height: 16}}/>
-        <GenericInput 
-          disabled={false}
-          hidePassword={true}
-          keyboardType={'numeric'}
-          label={'Senha'}
-          placeholder={'-   -   -   -   -   -   -   -'}
-          value={passwordValue}
-          onChange={onPasswordChange}
-          />
-        <View style={{height: 32}}/>
+        <View style={Styles.viewDocumentInput}>
+          <GenericInput 
+            disabled={false}
+            keyboardType={'numeric'}
+            label={'CPF'}
+            maxLength={14}
+            placeholder={'000.000.000-00'}
+            value={cpfMask(cpfValue)}
+            onChange={onCpfChange}
+            />
+        </View>
+        <View style={Styles.viewPswInput}>
+          <GenericInput 
+            disabled={false}
+            hidePassword={true}
+            keyboardType={'numeric'}
+            label={'Senha'}
+            placeholder={'-   -   -   -   -   -   -   -'}
+            value={passwordValue}
+            onChange={onPasswordChange}
+            />
+        </View>
         <ButtonComponent 
         size={'l'} 
         disabled={disableLogin(cpfValue, passwordValue)} 

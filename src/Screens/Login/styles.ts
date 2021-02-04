@@ -21,6 +21,14 @@ viewLoginData: {
     marginHorizontal: '20%',
 },
 
+viewDocumentInput: {
+    marginBottom: 16
+},
+
+viewPswInput: {
+    marginBottom: 32
+},
+
 textTitle: {
     color: '#FCFCFC',
     fontSize: 18,
