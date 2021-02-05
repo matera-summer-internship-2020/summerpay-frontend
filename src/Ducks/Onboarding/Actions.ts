@@ -1,6 +1,7 @@
 import { Telephone } from '../../types';
 import { identityDocumentEntity } from '../../types';
 import { OnboardingActionTypes } from './types';
+import { AddressEntity } from '../../types';
 
 export const changeNameAction = (payload: string) => ({
   payload,
@@ -17,4 +18,9 @@ export const changeIdentityDocumentEntityListAction = (
   payload: identityDocumentEntity[]) => ({
     payload,
     type: OnboardingActionTypes.CHANGE_IDENTITY_DOCUMENT_ENTITY_LIST
-  });
+});
+
+export const changeAddressAction = (payload: AddressEntity) => ({
+  payload,
+  type: OnboardingActionTypes.CHANGE_ADDRESS
+});
