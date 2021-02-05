@@ -1,6 +1,5 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
-import ProgressBar from '../../../Components/ProgressBar'
 import Styles from './styles'
 import ButtonComponent from '../../../Components/ButtonComponent'
 import { CentralNavigationService } from '../../../Services/Navigation'
