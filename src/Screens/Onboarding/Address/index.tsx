@@ -136,7 +136,7 @@ const Address: React.FunctionComponent = () => {
             <GenericInput
               keyboardType={'numeric'}
               placeholder={'Nº'}
-              value={inputNumberValue}
+              value={inputNumberValue.replace(/\D/g, '')}
               onChange={onChangeInputNumberValue}
             />
           </View>
