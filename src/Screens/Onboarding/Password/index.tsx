@@ -27,7 +27,7 @@ const Password: React.FunctionComponent = () => {
   const passwordStringValidator = (): string => {
     if (secondInputValue.length !== 6 && secondInputValue !== '') {
       return 'Senha precisa ter 6 dígitos';
-    } else if (firstInputValue !== secondInputValue && secondInputValue !== firstInputValue) {
+    } else if (secondInputValue !== firstInputValue && secondInputValue !== '') {
       return 'Senhas precisam ser iguais';
     }
     return '';
@@ -35,7 +35,7 @@ const Password: React.FunctionComponent = () => {
 
   const passwordBooleanValidator = (): boolean => {
     return (passwordStringValidator() !== '' || 
-    (firstInputValue === '' && secondInputValue === ''))
+    (firstInputValue === '' || secondInputValue === ''))
   };
 
   const onPress = (): void => {
