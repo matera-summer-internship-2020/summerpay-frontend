@@ -24,17 +24,35 @@ const Password: React.FunctionComponent = () => {
     setSecondInputValue(value);
   };
 
-  const passwordStringValidator = (): string => {
-    if (secondInputValue.length !== 6 && secondInputValue !== '') {
-      return 'Senha precisa ter 6 dígitos';
-    } else if (secondInputValue !== firstInputValue && secondInputValue !== '') {
-      return 'Senhas precisam ser iguais';
+  const firstPasswordStringValidator = (): string => {
+    const isFirstNum = /^\d+$/.test(firstInputValue);
+    if (firstInputValue !== '') {
+      if (firstInputValue.length !== 6) {
+        return 'Senha deve ter 6 dígitos';
+      } else if (!isFirstNum) {
+        return 'Senha deve conter apenas números';
+      } 
+    }
+    return '';
+  };
+
+  const secondPasswordStringValidator = (): string => {
+    const isSecondNum = /^\d+$/.test(secondInputValue);
+    if (secondInputValue !== '') {
+      if (secondInputValue.length !== 6) {
+        return 'Senha deve ter 6 dígitos';
+      } else if (!isSecondNum) {
+        return 'Senha deve conter apenas números';
+      } else if (secondInputValue !== firstInputValue) {
+        return 'Senhas precisam ser iguais';
+      } 
     }
     return '';
   };
 
   const passwordBooleanValidator = (): boolean => {
-    return (passwordStringValidator() !== '' || 
+    return ((secondPasswordStringValidator() !== '' || firstPasswordStringValidator() !== '') 
+    || 
     (firstInputValue === '' || secondInputValue === ''))
   };
 
@@ -54,8 +72,8 @@ const Password: React.FunctionComponent = () => {
           <View style={Styles.individualInputView}>
             <GenericInput
               error={
-                firstInputValue.length !== 6 && firstInputValue !== '' 
-                ? 'Senha precisa ter 6 dígitos'
+                passwordBooleanValidator() 
+                ? firstPasswordStringValidator()
                 : ''
               }
               label={'Senha'}
@@ -71,7 +89,7 @@ const Password: React.FunctionComponent = () => {
             <GenericInput
               error={
                 passwordBooleanValidator() 
-                ? passwordStringValidator()
+                ? secondPasswordStringValidator()
                 : ''
               }
               label={'Confirme sua senha'}
