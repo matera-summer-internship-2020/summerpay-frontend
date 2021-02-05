@@ -1,5 +1,6 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
+import { ScrollView } from 'react-native';
 import ProgressBar from '../../../Components/ProgressBar';
 import Styles from './styles';
 import GenericInput from '../../../Components/GenericInput';
@@ -33,7 +34,8 @@ const Password: React.FunctionComponent = () => {
   };
 
   const passwordBooleanValidator = (): boolean => {
-    return (passwordStringValidator() !== '')
+    return (passwordStringValidator() !== '' || 
+    (firstInputValue === '' && secondInputValue === ''))
   };
 
   const onPress = (): void => {
@@ -44,7 +46,7 @@ const Password: React.FunctionComponent = () => {
   return (
     <Container style={Styles.container}>
       <ProgressBar currentStep={7} numberOfSteps={7}/>
-      <View style={Styles.inputAndLabelView}>
+      <ScrollView style={Styles.inputAndLabelView}>
         <Text style={Styles.instructionText}>
           Por fim, insira uma senha numérica de 6 dígitos e confime:
         </Text>
@@ -82,14 +84,15 @@ const Password: React.FunctionComponent = () => {
             />
           </View>
         </View> 
-        <ButtonComponent 
+        
+      </ScrollView>
+      <ButtonComponent 
           size={'m'} 
           disabled={passwordBooleanValidator()} 
           mainButton={true}
           text={'Finalizar'} 
           onPress={onPress} 
         /> 
-      </View>
     </Container>
   );
 };
