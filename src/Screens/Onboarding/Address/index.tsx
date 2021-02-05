@@ -45,7 +45,6 @@ const Address: React.FunctionComponent = () => {
   };
   
   const onChangeSelectedState = (state: ValueType): void  => {
-    console.log(state);
     setSelectedState(state);  
   } 
   const onChangeInputCityValue = (city: string): void => {
