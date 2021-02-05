@@ -10,6 +10,7 @@ export const initialState: onboardingReducerType = {
     number: '',
     ddd: '',
   },
+  identityDocumentEntityList: [],
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {
@@ -27,6 +28,12 @@ export const onboardingReducer = (state = initialState, action: any) => {
         ...state,
         phone: payload
       }
+      
+    case OnboardingActionTypes.CHANGE_IDENTITY_DOCUMENT_ENTITY_LIST:
+      return {
+        ...state,
+        identityDocumentEntityList: payload
+      };
 
     default:
       return state;

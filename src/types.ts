@@ -21,3 +21,10 @@ export type Telephone = {
   "number": string,
   "ddd": string 
 }
+
+export type identityDocumentEntity = {
+  identityDocumentTypeEntity: {
+    identityDocumentTypeId: number
+  },
+  identityDocument: string
+}
