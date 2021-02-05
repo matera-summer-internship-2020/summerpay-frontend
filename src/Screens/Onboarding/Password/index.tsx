@@ -58,7 +58,7 @@ const Password: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     dispatch(changePasswordAction(secondInputValue));
-    // centralNavigationService.navigate('');
+    // centralNavigationService.navigate('Finish');
   };
 
   return (
