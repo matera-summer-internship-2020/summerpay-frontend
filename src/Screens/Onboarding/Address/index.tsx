@@ -15,8 +15,7 @@ import { OnboardingStackParamList } from '../types';
 import { AddressEntity, ValueType } from '../../../types';
 import { StatesList } from '../../../Helpers/States';
 import { cepMask } from '../../../Helpers/Masks';
-import { changeAddressAction } from '../../../Ducks/Onboarding/Actions'
-import { cos } from 'react-native-reanimated';
+import { changeAddressAction } from '../../../Ducks/Onboarding/Actions';
 
 const Address: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
