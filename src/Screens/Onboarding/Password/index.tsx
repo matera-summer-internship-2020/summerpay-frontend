@@ -84,7 +84,6 @@ const Password: React.FunctionComponent = () => {
             />
           </View>
         </View> 
-        
       </ScrollView>
       <ButtonComponent 
           size={'m'} 
