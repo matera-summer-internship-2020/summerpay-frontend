@@ -17,7 +17,7 @@ const ButtonComponent: React.FunctionComponent<IProps> = (props: IProps) => (
     onPress={props.onPress}
     style={Styles({ disabled: props.disabled, mainButton: props.mainButton, size: props.size }).button}
   >
-    <Text style={Styles({ mainButton: props.mainButton }).text}>{props.text}</Text>
+    <Text uppercase={false} style={Styles({ mainButton: props.mainButton }).text}>{props.text} </Text>
   </Button>
 );
 

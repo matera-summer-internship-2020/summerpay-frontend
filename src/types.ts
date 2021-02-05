@@ -14,6 +14,14 @@ export type SelectionData = {
   value: ValueType;
 }
 
+export type Telephone = {
+  "telephoneType": {
+  "telephoneTypeId": number
+  },
+  "number": string,
+  "ddd": string 
+}
+
 export type identityDocumentEntity = {
   identityDocumentTypeEntity: {
     identityDocumentTypeId: number
