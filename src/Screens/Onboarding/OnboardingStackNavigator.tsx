@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import Name from './Name';
 import Document from './Document';
 import Phone from './Phone';
+import Finish from './Finish'
 
 import { OnboardingStackParamList } from './types';
 
@@ -31,6 +32,16 @@ const OnboardingNavigator = () => {
       }}/>
       <Stack.Screen name="Phone" component={Phone} 
       options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Finish" component={Finish} 
+      options={{
+        headerHideBackButton: true,
         headerTitle: 'Criar conta',
         headerStyle: {
           backgroundColor: '#002D80',
