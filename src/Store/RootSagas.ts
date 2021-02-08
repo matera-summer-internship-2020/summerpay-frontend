@@ -1,3 +1,8 @@
 import { all } from 'redux-saga/effects';
 
-export default function* rootSaga() {}
+import { loginSagas } from '../Ducks/Login/Sagas';
+import { onboardingSagas } from '../Ducks/Onboarding/Sagas';
+
+export default function* rootSaga() {
+  yield all([loginSagas, onboardingSagas]);
+}
