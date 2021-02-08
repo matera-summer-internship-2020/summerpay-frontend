@@ -28,9 +28,16 @@ completedSteps: {
     height: 15
 },
 
-betweenSteps: {
+betweenNextSteps: {
     borderColor: '#EAB745',
     borderWidth: 0.5,
+    alignSelf: 'center',
+    flex: 1
+},
+
+betweenCompletedSteps: {
+    borderColor: '#EAB745',
+    borderWidth: 1,
     alignSelf: 'center',
     flex: 1
 }

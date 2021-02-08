@@ -11,6 +11,15 @@ export const initialState: onboardingReducerType = {
     ddd: '',
   },
   identityDocumentEntityList: [],
+  address: {
+    streetName: '',
+    state: '',
+    zipCode: '',
+    complement: '',
+    number: 0,
+    city: '',
+  },
+  password: ''
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {
@@ -35,6 +44,18 @@ export const onboardingReducer = (state = initialState, action: any) => {
         identityDocumentEntityList: payload
       };
 
+    case OnboardingActionTypes.CHANGE_ADDRESS:
+      return {
+        ...state,
+        address: payload
+      };
+
+    case OnboardingActionTypes.CHANGE_PASSWORD:
+      return {
+        ...state,
+        password: payload
+      };
+      
     default:
       return state;
   }
