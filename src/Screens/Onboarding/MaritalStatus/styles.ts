@@ -14,7 +14,8 @@ const Styles = StyleSheet.create({
         color: '#FCFCFC',
         
       },
-      inputAndLabelContainer: {
+      inputAndLabelView: {
+        flex: 1,
         width: '80%',
         flexDirection: 'column',
         justifyContent: 'space-evenly',

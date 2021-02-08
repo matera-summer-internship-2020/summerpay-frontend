@@ -40,13 +40,13 @@ const MaritalStatus: React.FunctionComponent = () => {
   return (
     <Container style={Styles.container}>
       <ProgressBar currentStep={5} numberOfSteps={7}/>
-      <Container style={Styles.inputAndLabelContainer}>
+      <View style={Styles.inputAndLabelView}>
         <Text style={Styles.instructionText}>Qual é o seu estado civil?</Text>
         <View style={Styles.inputView}>
           <SelectionInput data={MaritalStatusOptions} selectedValue={onChange}/>
         </View>
         <ButtonComponent disabled={validateInput(selectionValue)} mainButton={true} text="Próximo" size='m' onPress={onPress}/>
-      </Container>
+      </View>
     </Container>
   );
 };
