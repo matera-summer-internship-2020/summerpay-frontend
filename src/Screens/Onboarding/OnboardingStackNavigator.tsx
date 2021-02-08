@@ -1,7 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
-import Name from './Name';
+
 import Document from './Document';
+import Name from './Name';
 import Phone from './Phone';
 import Address from './Address'
 import Password from './Password';
@@ -11,32 +12,39 @@ import { OnboardingStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<OnboardingStackParamList>();
 
-const OnboardingNavigator = () => {
-  return (
-    <Stack.Navigator initialRouteName="Name" >
-      <Stack.Screen name="Name" component={Name} 
+const OnboardingNavigator = () => (
+  <Stack.Navigator initialRouteName="Name">
+    <Stack.Screen
+      name="Name"
+      component={Name}
       options={{
         headerTitle: 'Criar conta',
         headerStyle: {
-          backgroundColor: '#002D80',
+          backgroundColor: '#002D80'
         },
         headerTintColor: '#FFF',
-        headerHideShadow: true,
-      }}/>
-      <Stack.Screen name="Document" component={Document} 
+        headerHideShadow: true
+      }}
+    />
+    <Stack.Screen
+      name="Document"
+      component={Document}
       options={{
         headerTitle: 'Criar conta',
         headerStyle: {
-          backgroundColor: '#002D80',
+          backgroundColor: '#002D80'
         },
         headerTintColor: '#FFF',
-        headerHideShadow: true,
-      }}/>
-      <Stack.Screen name="Phone" component={Phone} 
+        headerHideShadow: true
+      }}
+    />
+    <Stack.Screen
+      name="Phone"
+      component={Phone}
       options={{
         headerTitle: 'Criar conta',
         headerStyle: {
-          backgroundColor: '#002D80',
+          backgroundColor: '#002D80'
         },
         headerTintColor: '#FFF',
         headerHideShadow: true,
@@ -71,6 +79,6 @@ const OnboardingNavigator = () => {
       }}/>
     </Stack.Navigator>
   );
-};
+}
 
 export default OnboardingNavigator;

@@ -1,4 +1,5 @@
 import SInfo from 'react-native-sensitive-info';
+
 import { StorageKey } from './types';
 
 export const getData = async (key: StorageKey): Promise<string> => {
@@ -11,10 +12,8 @@ export const getData = async (key: StorageKey): Promise<string> => {
 
 export const storeData = async (key: StorageKey, value: string): Promise<void> => {
   try {
-    SInfo.setItem(key, value, {});
-  } catch (error) {
-    return;
-  }
+    await SInfo.setItem(key, value, {});
+  } catch (error) {}
 };
 
 export default { storeData, getData };

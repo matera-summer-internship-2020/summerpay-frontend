@@ -1,14 +1,14 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const Styles = StyleSheet.create( {
+const Styles = StyleSheet.create({
   pickerItemStyle: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 1
   },
-  
-  pickerStyle: {
-      width: '100%',
-      color: "#FCFCFC"
-  }
-})
 
-export default Styles 
+  pickerStyle: {
+    width: '100%',
+    color: '#FCFCFC'
+  }
+});
+
+export default Styles;
