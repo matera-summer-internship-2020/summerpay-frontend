@@ -1,5 +1,5 @@
-import { Telephone } from '../types'
-import { identityDocumentEntity } from '../types'
+import { Telephone } from '../types';
+import { identityDocumentEntity } from '../types';
 import { AddressEntity } from '../types';
 
 export type appStatusReducerType = {

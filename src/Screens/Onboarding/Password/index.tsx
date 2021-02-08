@@ -1,14 +1,19 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
 import { ScrollView } from 'react-native';
-import ProgressBar from '../../../Components/ProgressBar';
-import Styles from './styles';
-import GenericInput from '../../../Components/GenericInput';
-import ButtonComponent from '../../../Components/ButtonComponent';
-import { CentralNavigationService } from '../../../Services/Navigation';
-import { OnboardingStackParamList } from '../types';
-import { changePasswordAction } from '../../../Ducks/Onboarding/Actions';
+
 import { useDispatch } from 'react-redux';
+
+import ButtonComponent from '../../../Components/ButtonComponent';
+import GenericInput from '../../../Components/GenericInput';
+import ProgressBar from '../../../Components/ProgressBar';
+
+import { changePasswordAction } from '../../../Ducks/Onboarding/Actions';
+import { CentralNavigationService } from '../../../Services/Navigation';
+
+import { OnboardingStackParamList } from '../types';
+
+import Styles from './styles';
 
 const Password: React.FunctionComponent = () => {
   const [firstInputValue, setFirstInputValue] = React.useState<string>('');
@@ -31,8 +36,9 @@ const Password: React.FunctionComponent = () => {
         return 'Senha deve ter 6 dígitos';
       } else if (!isFirstNum) {
         return 'Senha deve conter apenas números';
-      } 
+      }
     }
+
     return '';
   };
 
@@ -45,15 +51,19 @@ const Password: React.FunctionComponent = () => {
         return 'Senha deve conter apenas números';
       } else if (secondInputValue !== firstInputValue) {
         return 'Senhas precisam ser iguais';
-      } 
+      }
     }
+
     return '';
   };
 
   const passwordBooleanValidator = (): boolean => {
-    return ((secondPasswordStringValidator() !== '' || firstPasswordStringValidator() !== '') 
-    || 
-    (firstInputValue === '' || secondInputValue === ''))
+    return (
+      secondPasswordStringValidator() !== '' ||
+      firstPasswordStringValidator() !== '' ||
+      firstInputValue === '' ||
+      secondInputValue === ''
+    );
   };
 
   const onPress = (): void => {
@@ -63,19 +73,13 @@ const Password: React.FunctionComponent = () => {
 
   return (
     <Container style={Styles.container}>
-      <ProgressBar currentStep={7} numberOfSteps={7}/>
+      <ProgressBar currentStep={7} numberOfSteps={7} />
       <ScrollView style={Styles.inputAndLabelView}>
-        <Text style={Styles.instructionText}>
-          Por fim, insira uma senha numérica de 6 dígitos e confime:
-        </Text>
+        <Text style={Styles.instructionText}>Por fim, insira uma senha numérica de 6 dígitos e confime:</Text>
         <View style={Styles.inputView}>
           <View style={Styles.individualInputView}>
             <GenericInput
-              error={
-                passwordBooleanValidator() 
-                ? firstPasswordStringValidator()
-                : ''
-              }
+              error={passwordBooleanValidator() ? firstPasswordStringValidator() : ''}
               label={'Senha'}
               hidePassword={true}
               keyboardType={'numeric'}
@@ -87,11 +91,7 @@ const Password: React.FunctionComponent = () => {
           </View>
           <View style={Styles.individualInputView}>
             <GenericInput
-              error={
-                passwordBooleanValidator() 
-                ? secondPasswordStringValidator()
-                : ''
-              }
+              error={passwordBooleanValidator() ? secondPasswordStringValidator() : ''}
               label={'Confirme sua senha'}
               hidePassword={true}
               keyboardType={'numeric'}
@@ -101,15 +101,15 @@ const Password: React.FunctionComponent = () => {
               onChange={onSecondInputChange}
             />
           </View>
-        </View> 
+        </View>
       </ScrollView>
-      <ButtonComponent 
-          size={'m'} 
-          disabled={passwordBooleanValidator()} 
-          mainButton={true}
-          text={'Finalizar'} 
-          onPress={onPress} 
-        /> 
+      <ButtonComponent
+        size={'m'}
+        disabled={passwordBooleanValidator()}
+        mainButton={true}
+        text={'Finalizar'}
+        onPress={onPress}
+      />
     </Container>
   );
 };

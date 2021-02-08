@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+
 import Styles from './styles';
 
 type IProps = {
@@ -15,24 +16,27 @@ const AccountInfo: React.FunctionComponent<IProps> = (props: IProps) => {
   };
 
   const getLastName = (userName: string): string => {
-    let nameArray: string[] = userName.split(' ');
+    const nameArray: string[] = userName.split(' ');
+
     return nameArray[nameArray.length - 1];
   };
 
   const getInicials = (userName: string): string => {
-    let names: string[] = userName.split(' ');
+    const names: string[] = userName.split(' ');
 
-    let inicials = names[0][0] + names[names.length - 1][0];
+    const inicials = names[0][0] + names[names.length - 1][0];
+
     return inicials;
   };
 
   const hideInfo = (info: string): string => {
-    let l: number = info.length;
+    const l: number = info.length;
 
-    let mask: string = '****';
+    let mask = '****';
     if (l === 4) {
       mask = '**';
     }
+
     return mask + info.toString()[l - 2] + info.toString()[l - 1];
   };
 

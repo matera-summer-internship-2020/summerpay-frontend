@@ -5,13 +5,11 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 10
   },
-
   stepTrackerContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center'
   },
-
   nextSteps: {
     borderRadius: 100,
     borderColor: '#EAB745',
@@ -19,7 +17,6 @@ const Styles = StyleSheet.create({
     width: 15,
     height: 15
   },
-
   completedSteps: {
     borderRadius: 100,
     borderColor: '#EAB745',
@@ -27,14 +24,12 @@ const Styles = StyleSheet.create({
     width: 15,
     height: 15
   },
-
   betweenNextSteps: {
     borderColor: '#EAB745',
     borderWidth: 0.5,
     alignSelf: 'center',
     flex: 1
   },
-
   betweenCompletedSteps: {
     borderColor: '#EAB745',
     borderWidth: 1,

@@ -1,21 +1,21 @@
-import React from 'react';
-
 import { Container, Text, View } from 'native-base';
+import React from 'react';
 import { ScrollView, Keyboard } from 'react-native';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
+
+import ButtonComponent from '../../../Components/ButtonComponent/index';
+import GenericInput from '../../../Components/GenericInput/index';
+import ProgressBar from '../../../Components/ProgressBar/index';
+import SelectionInput from '../../../Components/SelectionInput/index';
+
+import { changeAddressAction } from '../../../Ducks/Onboarding/Actions';
+import { cepMask } from '../../../Helpers/Masks';
+import { StatesList } from '../../../Helpers/States';
+import { CentralNavigationService } from '../../../Services/Navigation';
+import { AddressEntity, ValueType } from '../../../types';
+import { OnboardingStackParamList } from '../types';
 
 import Styles from './styles';
-import SelectionInput from '../../../Components/SelectionInput/index';
-import ProgressBar from '../../../Components/ProgressBar/index';
-import GenericInput from '../../../Components/GenericInput/index';
-import ButtonComponent from '../../../Components/ButtonComponent/index';
-
-import { CentralNavigationService } from '../../../Services/Navigation'
-import { OnboardingStackParamList } from '../types';
-import { AddressEntity, ValueType } from '../../../types';
-import { StatesList } from '../../../Helpers/States';
-import { cepMask } from '../../../Helpers/Masks';
-import { changeAddressAction } from '../../../Ducks/Onboarding/Actions';
 
 const Address: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
@@ -29,12 +29,12 @@ const Address: React.FunctionComponent = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    Keyboard.addListener("keyboardDidShow", keyboardDidShow);
-    Keyboard.addListener("keyboardDidHide", keyboardDidHide);
+    Keyboard.addListener('keyboardDidShow', keyboardDidShow);
+    Keyboard.addListener('keyboardDidHide', keyboardDidHide);
 
     return () => {
-      Keyboard.removeListener("keyboardDidShow", keyboardDidShow);
-      Keyboard.removeListener("keyboardDidHide", keyboardDidHide);
+      Keyboard.removeListener('keyboardDidShow', keyboardDidShow);
+      Keyboard.removeListener('keyboardDidHide', keyboardDidHide);
     };
   }, []);
   const keyboardDidShow = (): void => {
@@ -43,10 +43,10 @@ const Address: React.FunctionComponent = () => {
   const keyboardDidHide = (): void => {
     setHideFields(false);
   };
-  
-  const onChangeSelectedState = (state: ValueType): void  => {
-    setSelectedState(state);  
-  } 
+
+  const onChangeSelectedState = (state: ValueType): void => {
+    setSelectedState(state);
+  };
   const onChangeInputCityValue = (city: string): void => {
     setInputCityValue(city);
   };
@@ -64,12 +64,16 @@ const Address: React.FunctionComponent = () => {
   };
 
   const inputsValidation = (): boolean => {
-    return (selectedState && inputCityValue &&
-      inputCepValue && inputStreetValue &&
-      inputNumberValue && inputComplementValue ? 
-      true : false);
-  }
-  
+    return selectedState &&
+      inputCityValue &&
+      inputCepValue &&
+      inputStreetValue &&
+      inputNumberValue &&
+      inputComplementValue
+      ? true
+      : false;
+  };
+
   const onPress = (): void => {
     const newAddress: AddressEntity = {
       streetName: inputStreetValue,
@@ -77,30 +81,25 @@ const Address: React.FunctionComponent = () => {
       zipCode: inputCepValue.replace(/\D/g, ''),
       complement: inputComplementValue,
       number: Number(inputNumberValue),
-      city: inputCityValue,
-    }
+      city: inputCityValue
+    };
     dispatch(changeAddressAction(newAddress));
     // TODO uncomment when the next screen is created
     // centralNavigationService.navigate('Confirm')
   };
 
   return (
-    <Container style={Styles.container} >
-      { hideFields ?
-          null
-        :
+    <Container style={Styles.container}>
+      {hideFields ? null : (
         <>
           <ProgressBar currentStep={5} numberOfSteps={7}></ProgressBar>
           <Text style={Styles.instructionText}>Insira seu endereço:</Text>
         </>
-      }
+      )}
       <ScrollView style={Styles.inputsView}>
         <View style={Styles.twoInputsView}>
           <View style={Styles.leftInputViewFromTwoInputsView}>
-            <SelectionInput 
-              data={StatesList}
-              selectedValue={onChangeSelectedState}
-            />
+            <SelectionInput data={StatesList} selectedValue={onChangeSelectedState} />
           </View>
           <View style={Styles.rightInputViewFromTwoInputsView}>
             <GenericInput
@@ -119,14 +118,14 @@ const Address: React.FunctionComponent = () => {
             value={cepMask(inputCepValue)}
             onChange={onChangeInputCepValue}
           />
-         </View>
-         <View style={Styles.oneLineInputView}>
+        </View>
+        <View style={Styles.oneLineInputView}>
           <GenericInput
             keyboardType={'default'}
             placeholder={'Rua/Av.'}
             value={inputStreetValue}
             onChange={onChangeInputStreetValue}
-          />   
+          />
         </View>
         <View style={Styles.twoInputsView}>
           <View style={Styles.leftInputViewFromTwoInputsView}>
@@ -145,15 +144,9 @@ const Address: React.FunctionComponent = () => {
               onChange={onChangeInputComplementValue}
             />
           </View>
-        </View> 
+        </View>
       </ScrollView>
-      <ButtonComponent
-        size={'m'} 
-        disabled={!inputsValidation()} 
-        mainButton={true}
-        text={'Próximo'} 
-        onPress={onPress} 
-      /> 
+      <ButtonComponent size={'m'} disabled={!inputsValidation()} mainButton={true} text={'Próximo'} onPress={onPress} />
     </Container>
   );
 };

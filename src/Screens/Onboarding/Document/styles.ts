@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   container: {
@@ -9,23 +9,20 @@ const Styles = StyleSheet.create({
     paddingRight: '5%',
     paddingBottom: '10%'
   },
-
   inputAndLabelContainer: {
     backgroundColor: '#002D80',
-    alignItems:'center',
+    alignItems: 'center',
     justifyContent: 'space-evenly',
-    width: '80%',
+    width: '80%'
   },
-
   textLabel: {
     color: '#FCFCFC',
     fontSize: 24,
-    width: '80%',
+    width: '80%'
   },
-  
   inputView: {
-    width: '100%',
-  },
+    width: '100%'
+  }
 });
 
 export default Styles;

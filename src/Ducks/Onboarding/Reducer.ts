@@ -1,5 +1,6 @@
-import { OnboardingActionTypes } from './types';
 import { onboardingReducerType } from '../types';
+
+import { OnboardingActionTypes } from './types';
 
 export const initialState: onboardingReducerType = {
   name: '',
@@ -8,7 +9,7 @@ export const initialState: onboardingReducerType = {
       telephoneTypeId: 0
     },
     number: '',
-    ddd: '',
+    ddd: ''
   },
   identityDocumentEntityList: [],
   address: {
@@ -17,7 +18,7 @@ export const initialState: onboardingReducerType = {
     zipCode: '',
     complement: '',
     number: 0,
-    city: '',
+    city: ''
   },
   password: ''
 };
@@ -33,11 +34,11 @@ export const onboardingReducer = (state = initialState, action: any) => {
       };
 
     case OnboardingActionTypes.CHANGE_PHONE:
-      return{
+      return {
         ...state,
         phone: payload
-      }
-      
+      };
+
     case OnboardingActionTypes.CHANGE_IDENTITY_DOCUMENT_ENTITY_LIST:
       return {
         ...state,
@@ -55,7 +56,7 @@ export const onboardingReducer = (state = initialState, action: any) => {
         ...state,
         password: payload
       };
-      
+
     default:
       return state;
   }
