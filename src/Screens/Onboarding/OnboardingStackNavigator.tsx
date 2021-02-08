@@ -43,7 +43,7 @@ const OnboardingNavigator = () => {
       }}/>
       <Stack.Screen name="MaritalStatus" component={MaritalStatus} 
       options={{
-        headerTitle: 'Estado civil',
+        headerTitle: 'Criar conta',
         headerStyle: {
           backgroundColor: '#002D80',
         },
