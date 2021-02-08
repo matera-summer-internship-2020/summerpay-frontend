@@ -33,3 +33,12 @@ export type identityDocumentEntity = {
   },
   identityDocument: string
 }
+
+export type AddressEntity = {
+  streetName: string;
+  state: ValueType;
+  zipCode: string;
+  complement: string;
+  number: number;
+  city: string;
+};

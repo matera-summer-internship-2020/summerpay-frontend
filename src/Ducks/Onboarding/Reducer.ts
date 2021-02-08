@@ -11,9 +11,18 @@ export const initialState: onboardingReducerType = {
     ddd: '',
   },
   identityDocumentEntityList: [],
+
   maritalStatus: {
     maritalStatusId: 0,
     maritalStatus: ''
+  },
+  address: {
+    streetName: '',
+    state: '',
+    zipCode: '',
+    complement: '',
+    number: 0,
+    city: '',
   }
 };
 
@@ -43,6 +52,12 @@ export const onboardingReducer = (state = initialState, action: any) => {
       return {
         ...state,
         maritalStatus: payload
+      };
+
+    case OnboardingActionTypes.CHANGE_ADDRESS:
+      return {
+        ...state,
+        address: payload
       };
 
     default:
