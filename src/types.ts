@@ -13,3 +13,27 @@ export type SelectionData = {
   label: string;
   value: ValueType;
 };
+
+export type Telephone = {
+  telephoneType: {
+    telephoneTypeId: number;
+  };
+  number: string;
+  ddd: string;
+};
+
+export type identityDocumentEntity = {
+  identityDocumentTypeEntity: {
+    identityDocumentTypeId: number;
+  };
+  identityDocument: string;
+};
+
+export type AddressEntity = {
+  streetName: string;
+  state: ValueType;
+  zipCode: string;
+  complement: string;
+  number: number;
+  city: string;
+};

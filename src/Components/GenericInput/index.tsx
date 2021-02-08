@@ -20,7 +20,7 @@ const GenericInput: React.FunctionComponent<IProps> = (props: IProps) => {
 
   return (
     <View>
-      {props.label ? <Text style={Styles().labelStyle}>{props.label}</Text> : ''}
+      {props.label ? <Text style={Styles().labelStyle}>{props.label}</Text> : null}
       <Item underline style={Styles({ error: hasError() }).underlineInputError}>
         <Input
           style={Styles().inputStyle}

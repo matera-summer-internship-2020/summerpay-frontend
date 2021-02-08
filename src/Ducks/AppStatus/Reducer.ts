@@ -1,6 +1,8 @@
+import { appStatusReducerType } from '../types';
+
 import AppStatusActionTypes from './types';
 
-export const initialState: reducers.appStatusReducer = {
+export const initialState: appStatusReducerType = {
   appState: 'active',
   stackState: ''
 };

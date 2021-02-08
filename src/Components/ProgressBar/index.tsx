@@ -14,7 +14,7 @@ const StepTrackerView = (props: IProps) => {
   for (let index = 1; index < props.currentStep && index < props.numberOfSteps; index++) {
     steps.push(
       <View key={keyCreator} style={Styles.stepTrackerContainer}>
-        <View key={keyCreator + 1} style={Styles.betweenSteps} />
+        <View key={keyCreator + 1} style={Styles.betweenCompletedSteps} />
         <View key={keyCreator + 2} style={Styles.completedSteps} />
       </View>
     );
@@ -23,7 +23,7 @@ const StepTrackerView = (props: IProps) => {
   for (let index: number = props.currentStep; index < props.numberOfSteps; index++) {
     steps.push(
       <View key={keyCreator} style={Styles.stepTrackerContainer}>
-        <View key={keyCreator + 1} style={Styles.betweenSteps} />
+        <View key={keyCreator + 1} style={Styles.betweenNextSteps} />
         <View key={keyCreator + 2} style={Styles.nextSteps} />
       </View>
     );

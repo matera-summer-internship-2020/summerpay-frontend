@@ -4,6 +4,9 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import Document from './Document';
 import Name from './Name';
 import Phone from './Phone';
+import Address from './Address'
+import Password from './Password';
+import Finish from './Finish';
 
 import { OnboardingStackParamList } from './types';
 
@@ -44,10 +47,38 @@ const OnboardingNavigator = () => (
           backgroundColor: '#002D80'
         },
         headerTintColor: '#FFF',
-        headerHideShadow: true
-      }}
-    />
-  </Stack.Navigator>
-);
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Address" component={Address} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Password" component={Password} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Finish" component={Finish} 
+      options={{
+        headerHideBackButton: true,
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+    </Stack.Navigator>
+  );
+}
 
 export default OnboardingNavigator;
