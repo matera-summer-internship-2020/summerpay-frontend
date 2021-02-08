@@ -21,7 +21,7 @@ export const Styles = (props?: IProps) =>
     },
     text: {
       color: props?.mainButton ? '#FFF' : '#CC7600',
-      fontSize: 16
+      fontSize: 20
     }
   });
 
