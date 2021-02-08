@@ -23,4 +23,9 @@ export const changeIdentityDocumentEntityListAction = (
 export const changeAddressAction = (payload: AddressEntity) => ({
   payload,
   type: OnboardingActionTypes.CHANGE_ADDRESS
+  });
+
+export const changePasswordAction = (payload: string) => ({
+  payload,
+  type: OnboardingActionTypes.CHANGE_PASSWORD
 });
