@@ -9,7 +9,7 @@ import { OnboardingStackParamList } from '../types';
 import {useDispatch} from 'react-redux';
 import {changeMaritalStatusAction} from '../../../Ducks/Onboarding/Actions';
 import { MaritalStatusOptions } from '../../../Helpers/MaritalStatus';
-import { MaritalStatusEntity, ValueType } from '../../../types';
+import { MaritalStatusEntity, SelectionData, ValueType } from '../../../types';
 
 const MaritalStatus: React.FunctionComponent = () => {
   const [selectionValue, setSelectionValue] = React.useState<ValueType>('');
@@ -25,7 +25,7 @@ const MaritalStatus: React.FunctionComponent = () => {
     
     const changedMaritalStatus : MaritalStatusEntity = { 
       maritalStatusId: Number(selectionValue),
-      maritalStatus: MaritalStatusOptions.filter((obj) => {return obj.value === selectionValue})[0].label
+      maritalStatus: MaritalStatusOptions.filter((obj: SelectionData) => obj.value === selectionValue)[0].label
     };
 
     dispatch(changeMaritalStatusAction(changedMaritalStatus));
