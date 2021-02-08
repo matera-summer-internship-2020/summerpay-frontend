@@ -104,7 +104,6 @@ const Address: React.FunctionComponent = () => {
           </View>
           <View style={Styles.rightInputViewFromTwoInputsView}>
             <GenericInput
-              error={''}
               keyboardType={'default'}
               placeholder={'Cidade'}
               value={inputCityValue}
