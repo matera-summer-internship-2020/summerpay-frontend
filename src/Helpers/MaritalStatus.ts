@@ -1,6 +1,6 @@
 import { SelectionData } from '../types';
 
-export const MaritalStatus: SelectionData[] = [
+export const MaritalStatusOptions: SelectionData[] = [
   { label: 'Selecione uma opção', value: ''},
   { label: 'Solteiro(a)', value: 1 },
   { label: 'Casado(a)', value: 2 },

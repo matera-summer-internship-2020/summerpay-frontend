@@ -11,6 +11,10 @@ export const initialState: onboardingReducerType = {
     ddd: '',
   },
   identityDocumentEntityList: [],
+  maritalStatus: {
+    maritalStatusId: 0,
+    maritalStatus: ''
+  }
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {
@@ -33,6 +37,12 @@ export const onboardingReducer = (state = initialState, action: any) => {
       return {
         ...state,
         identityDocumentEntityList: payload
+      };
+    
+    case OnboardingActionTypes.CHANGE_MARITAL_STATUS:
+      return {
+        ...state,
+        maritalStatus: payload
       };
 
     default:
