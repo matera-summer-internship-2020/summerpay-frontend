@@ -5,6 +5,7 @@ import Document from './Document';
 import Phone from './Phone';
 import MaritalStatus from './MaritalStatus';
 import Address from './Address'
+import Password from './Password';
 
 import { OnboardingStackParamList } from './types';
 
@@ -50,6 +51,15 @@ const OnboardingNavigator = () => {
         headerHideShadow: true,
       }}/>
       <Stack.Screen name="Address" component={Address} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Password" component={Password} 
       options={{
         headerTitle: 'Criar conta',
         headerStyle: {

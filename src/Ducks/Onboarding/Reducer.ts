@@ -23,7 +23,8 @@ export const initialState: onboardingReducerType = {
     complement: '',
     number: 0,
     city: '',
-  }
+  },
+  password: '',
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {
@@ -60,6 +61,12 @@ export const onboardingReducer = (state = initialState, action: any) => {
         address: payload
       };
 
+    case OnboardingActionTypes.CHANGE_PASSWORD:
+      return {
+        ...state,
+        password: payload
+      };
+      
     default:
       return state;
   }

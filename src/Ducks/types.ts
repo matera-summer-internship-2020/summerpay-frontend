@@ -14,6 +14,7 @@ export type onboardingReducerType = {
   identityDocumentEntityList: identityDocumentEntity[];
   maritalStatus: MaritalStatusEntity;
   address: AddressEntity;
+  password: string;
 };
 
 export type loginReducerType = {
