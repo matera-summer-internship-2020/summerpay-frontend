@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import Name from './Name';
 import Document from './Document';
 import Phone from './Phone';
+import Address from './Address'
 
 import { OnboardingStackParamList } from './types';
 
@@ -30,6 +31,15 @@ const OnboardingNavigator = () => {
         headerHideShadow: true,
       }}/>
       <Stack.Screen name="Phone" component={Phone} 
+      options={{
+        headerTitle: 'Criar conta',
+        headerStyle: {
+          backgroundColor: '#002D80',
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+      }}/>
+      <Stack.Screen name="Address" component={Address} 
       options={{
         headerTitle: 'Criar conta',
         headerStyle: {
