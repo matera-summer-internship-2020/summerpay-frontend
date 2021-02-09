@@ -15,12 +15,7 @@ export type onboardingReducerType = {
   password: string;
 };
 
-export type loginReducerType = {
-  clientCPF: string;
-};
-
 export type root = {
   appStatus: appStatusReducerType;
   onboarding: onboardingReducerType;
-  login: loginReducerType;
 };
