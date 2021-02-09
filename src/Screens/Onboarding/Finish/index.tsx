@@ -1,18 +1,19 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
+
 import ConfirmOnbording from '../../../Assets/Images/confirm.svg';
 import ButtonComponent from '../../../Components/ButtonComponent';
 
 import { CentralNavigationService } from '../../../Services/Navigation';
-import { OnboardingStackParamList } from '../types';
+import { AppStackParamList } from '../../../types';
 
 import Styles from './styles';
 
 const Phone: React.FunctionComponent = () => {
-  const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
+  const centralNavigationService = CentralNavigationService<AppStackParamList>();
 
   const onPress = (): void => {
-    // centralNavigationService.navigate('Login(?)')
+    centralNavigationService.reset('Login');
   };
 
   return (

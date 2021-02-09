@@ -84,15 +84,15 @@ const Address: React.FunctionComponent = () => {
       city: inputCityValue
     };
     dispatch(changeAddressAction(newAddress));
-    // TODO uncomment when the next screen is created
-    // centralNavigationService.navigate('Confirm')
+    centralNavigationService.navigate('Password');
   };
 
   return (
     <Container style={Styles.container}>
       {hideFields ? null : (
         <>
-          <ProgressBar currentStep={5} numberOfSteps={7}></ProgressBar>
+          {/* TODO: change number of steps if we add confirmation screen */}
+          <ProgressBar currentStep={5} numberOfSteps={6}></ProgressBar>
           <Text style={Styles.instructionText}>Insira seu endereço:</Text>
         </>
       )}
