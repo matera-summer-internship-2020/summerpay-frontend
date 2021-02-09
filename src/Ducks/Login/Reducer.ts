@@ -1,3 +1,4 @@
+// TODO: remover reducer não utilizado. Remover também do Root Reducer
 import { loginReducerType } from '../types';
 
 import { LoginActionTypes } from './types';
