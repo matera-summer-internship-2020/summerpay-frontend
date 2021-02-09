@@ -34,7 +34,7 @@ const MaritalStatus: React.FunctionComponent = () => {
   };
 
   const validateInput = (input: ValueType): boolean => {
-    return input.toString() === "";
+    return input === 0;
   }
 
   return (
