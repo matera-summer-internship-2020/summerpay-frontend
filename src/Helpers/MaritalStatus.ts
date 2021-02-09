@@ -7,4 +7,4 @@ export const MaritalStatusOptions: SelectionData[] = [
   { label: 'Viúvo(a)', value: 3 }
 ];
 
-export default MaritalStatus;
+export default MaritalStatusOptions;

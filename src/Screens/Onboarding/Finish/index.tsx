@@ -1,6 +1,5 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
-
 import ConfirmOnbording from '../../../Assets/Images/confirm.svg';
 import ButtonComponent from '../../../Components/ButtonComponent';
 

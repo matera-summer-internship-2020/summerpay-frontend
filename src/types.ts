@@ -25,7 +25,7 @@ export type Telephone = {
 export type MaritalStatusEntity = {
   maritalStatus: string,
   maritalStatusId: number 
-}
+};
 
 export type identityDocumentEntity = {
   identityDocumentTypeEntity: {
