@@ -29,7 +29,6 @@ const Document: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     const newIdentityDocumentEntityList: identityDocumentEntity[] = [
-      ...identityDocumentEntityList,
       {
         identityDocumentTypeEntity: {
           identityDocumentTypeId: 2
