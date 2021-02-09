@@ -1,58 +1,47 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
-
-mainContainer: {
+  mainContainer: {
     backgroundColor: '#002D80',
     justifyContent: 'center'
-},
-
-imageBackground: {
+  },
+  imageBackground: {
     position: 'absolute',
-    alignSelf: 'center',   
-},
-
-viewLogo:{
-    alignSelf: 'center',
-},
-
-viewLoginData: {
+    alignSelf: 'center'
+  },
+  viewLogo: {
+    alignSelf: 'center'
+  },
+  viewLoginData: {
     marginBottom: '5%',
-    marginHorizontal: '20%',
-},
-
-viewDocumentInput: {
+    marginHorizontal: '20%'
+  },
+  viewDocumentInput: {
     marginBottom: 16
-},
-
-viewPswInput: {
+  },
+  viewPswInput: {
     marginBottom: 32
-},
-
-textTitle: {
+  },
+  textTitle: {
     color: '#FCFCFC',
     fontSize: 18,
-    textAlign: "center",
+    textAlign: 'center',
     marginBottom: 16
-},
-
-textSignIn: {
+  },
+  textSignIn: {
     color: '#FCFCFC',
     fontSize: 14,
-    textAlign: "center"
-},
-
-buttonSignIn: {
+    textAlign: 'center'
+  },
+  buttonSignIn: {
     marginTop: 8
-},
-
-textButtonSignIn: {
+  },
+  textButtonSignIn: {
     color: '#FCFCFC',
     fontSize: 16,
     textDecorationLine: 'underline',
-    textAlign: "center"
-},
-
+    textAlign: 'center'
+  }
 });
 
 export default Styles;

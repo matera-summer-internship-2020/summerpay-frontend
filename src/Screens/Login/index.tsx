@@ -1,16 +1,20 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
-import { CentralNavigationService } from '../../Services/Navigation';
+
 import { TouchableOpacity } from 'react-native';
-import { AppStackParamList } from '../../types';
-import Styles from './styles';
-import GenericInput from '../../Components/GenericInput';
-import { cpfMask } from '../../Helpers/Masks';
-import Logo from '../../Assets/Images/logo.svg';
+
+import { useDispatch } from 'react-redux';
+
 import LoginBackground from '../../Assets/Images/login-background.svg';
+import Logo from '../../Assets/Images/logo.svg';
 import ButtonComponent from '../../Components/ButtonComponent';
+import GenericInput from '../../Components/GenericInput';
 import { changeClientCpfAction } from '../../Ducks/Login/Actions';
-import { useDispatch } from 'react-redux'; 
+import { cpfMask } from '../../Helpers/Masks';
+import { CentralNavigationService } from '../../Services/Navigation';
+import { AppStackParamList } from '../../types';
+
+import Styles from './styles';
 
 const Login: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
@@ -19,7 +23,7 @@ const Login: React.FunctionComponent = () => {
   const dispatch = useDispatch();
 
   const disableLogin = (cpfValue: string, passwordValue: string) => {
-    return (cpfValue.length !== 14 || passwordValue.length === 0)
+    return cpfValue.length !== 14 || passwordValue.length === 0;
   };
 
   const onCpfChange = (value: string): void => {
@@ -36,14 +40,14 @@ const Login: React.FunctionComponent = () => {
 
   return (
     <Container style={Styles.mainContainer}>
-      <LoginBackground width={'100%'} height={'100%'} style={Styles.imageBackground}/>
+      <LoginBackground width={'100%'} height={'100%'} style={Styles.imageBackground} />
       <View style={Styles.viewLogo}>
         <Logo width={'200'} />
       </View>
       <View style={Styles.viewLoginData}>
         <Text style={Styles.textTitle}>Acesse sua conta</Text>
         <View style={Styles.viewDocumentInput}>
-          <GenericInput 
+          <GenericInput
             disabled={false}
             keyboardType={'numeric'}
             label={'CPF'}
@@ -51,10 +55,10 @@ const Login: React.FunctionComponent = () => {
             placeholder={'000.000.000-00'}
             value={cpfMask(cpfValue)}
             onChange={onCpfChange}
-            />
+          />
         </View>
         <View style={Styles.viewPswInput}>
-          <GenericInput 
+          <GenericInput
             disabled={false}
             hidePassword={true}
             keyboardType={'numeric'}
@@ -62,22 +66,19 @@ const Login: React.FunctionComponent = () => {
             placeholder={'-   -   -   -   -   -   -   -'}
             value={passwordValue}
             onChange={onPasswordChange}
-            />
+          />
         </View>
-        <ButtonComponent 
-        size={'l'} 
-        disabled={disableLogin(cpfValue, passwordValue)} 
-        mainButton={true} 
-        text={'Entrar'} 
-        onPress={onLoginPress}
+        <ButtonComponent
+          size={'l'}
+          disabled={disableLogin(cpfValue, passwordValue)}
+          mainButton={true}
+          text={'Entrar'}
+          onPress={onLoginPress}
         />
       </View>
       <Text style={Styles.textSignIn}>Não possui conta ainda?</Text>
-      <TouchableOpacity
-      onPress={() => void {}} 
-      style={Styles.buttonSignIn}
-      >
-      {/* <TouchableOpacity
+      <TouchableOpacity onPress={() => void {}} style={Styles.buttonSignIn}>
+        {/* <TouchableOpacity
       onPress={() => centralNavigationService.navigate("Onboarding")} 
       style={Styles.buttonSignIn}
       > */}

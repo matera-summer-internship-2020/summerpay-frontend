@@ -47,13 +47,13 @@ export const cepMask = (value: string) => {
 
 export const toCurrency = (valueStr: string) => {
   const isNegative: boolean = parseFloat(valueStr) < 0;
-  const currencySymbol: string = 'R$';
-  const numberDecimalPlaces: number = 2;
-  const decimalSeparator: string = ',';
-  const thousandSeparator: string = '.';
+  const currencySymbol = 'R$';
+  const numberDecimalPlaces = 2;
+  const decimalSeparator = ',';
+  const thousandSeparator = '.';
 
   if (valueStr.split(',').length === 1 && valueStr.split('.').length === 1) {
-    valueStr = parseFloat(valueStr) + decimalSeparator + '00';
+    valueStr = `${parseFloat(valueStr)}${decimalSeparator}00`;
   }
 
   if (decimalSeparator === ',') {
@@ -65,28 +65,28 @@ export const toCurrency = (valueStr: string) => {
 
   if (mask.length < numberDecimalPlaces) {
     return isNegative
-      ? currencySymbol + '-' + mask + decimalSeparator + '00'
-      : currencySymbol + mask + decimalSeparator + '00';
+      ? `${currencySymbol}-${mask}${decimalSeparator}00`
+      : `${currencySymbol + mask + decimalSeparator}00`;
   }
 
   if (mask.length === numberDecimalPlaces) {
     return isNegative
-      ? currencySymbol + '-' + '0' + decimalSeparator + mask
-      : currencySymbol + '0' + decimalSeparator + mask;
+      ? `${currencySymbol}-` + `0${decimalSeparator}${mask}`
+      : `${currencySymbol}0${decimalSeparator}${mask}`;
   }
 
-  mask = mask.replace(/(\d+)(\d{2})$/gm, '$1' + decimalSeparator + '$2');
-  mask = mask.replace(/(\d+)(\d{3},\d{2})$/gm, '$1' + thousandSeparator + '$2');
+  mask = mask.replace(/(\d+)(\d{2})$/gm, `$1${decimalSeparator}$2`);
+  mask = mask.replace(/(\d+)(\d{3},\d{2})$/gm, `$1${thousandSeparator}$2`);
   mask = mask.replace(/^(0\.)/gm, '');
-  mask = mask.replace(/(\d+)(\d{3})\.(\d{3},\d{2})$/gm, '$1' + thousandSeparator + '$2' + thousandSeparator + '$3');
+  mask = mask.replace(/(\d+)(\d{3})\.(\d{3},\d{2})$/gm, `$1${thousandSeparator}$2${thousandSeparator}$3`);
   mask = mask.replace(
     /(\d+)(\d{3})\.(\d{3})\.(\d{3},\d{2})$/gm,
-    '$1' + thousandSeparator + '$2' + thousandSeparator + '$3' + thousandSeparator + '$4'
+    `$1${thousandSeparator}$2${thousandSeparator}$3${thousandSeparator}$4`
   );
   mask = mask.replace(/^(0)(\d)/g, '$2');
 
   if (isNegative) {
-    return currencySymbol + '-' + mask;
+    return `${currencySymbol}-${mask}`;
   }
 
   return currencySymbol + mask;

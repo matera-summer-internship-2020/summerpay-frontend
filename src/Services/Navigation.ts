@@ -1,6 +1,7 @@
+import { CommonActions, StackActions } from '@react-navigation/native';
 import React from 'react';
-import {CommonActions, StackActions} from '@react-navigation/native';
-import {changeStackStateAction} from '../Ducks/AppStatus/Actions';
+
+import { changeStackStateAction } from '../Ducks/AppStatus/Actions';
 import Store from '../Store/index';
 
 declare type ParamListBase = Record<string, object | undefined>;
@@ -16,7 +17,7 @@ declare type StackNavigationProp<ParamList extends ParamListBase> = {
     routeName: RouteName,
     params?: ParamList[RouteName],
     firstScreen?: string,
-    index?: number,
+    index?: number
   ): void;
   replace<RouteName extends keyof ParamList>(
     ...args: ParamList[RouteName] extends undefined | any
@@ -33,13 +34,13 @@ declare type StackNavigationProp<ParamList extends ParamListBase> = {
 export const navigationRef: any = React.createRef();
 const routeNameRef: any = React.createRef();
 
-const getActiveRouteName: any = (state: any) => {
+const getActiveRouteName = (state: any): string => {
   const route = state.routes[state.index];
   if (route.state) {
     return getActiveRouteName(route.state);
   }
 
-  return route.name;
+  return route.name as string;
 };
 
 export const saveCurrentRoute = (state: any) => {
@@ -52,68 +53,60 @@ export const saveCurrentRoute = (state: any) => {
   routeNameRef.current = currentRouteName;
 };
 
-export const CentralNavigationService = <
-  T extends Record<string, object | undefined>
->(): StackNavigationProp<T> => {
-  return {
-    back: () => {
-      if (navigationRef.current) {
-        navigationRef.current.goBack();
-      }
-    },
-    navigate: async (...args: any[]) => {
-      const routeName = args[0];
-      const params = args.length > 1 ? args[1] : {};
+export const CentralNavigationService = <T extends Record<string, object | undefined>>(): StackNavigationProp<T> => ({
+  back: () => {
+    if (navigationRef.current) {
+      navigationRef.current.goBack();
+    }
+  },
+  navigate: async (...args: any[]) => {
+    const routeName = args[0];
+    const params = args.length > 1 ? args[1] : {};
 
-      if (navigationRef.current) {
-        navigationRef.current.navigate(routeName, params);
-      }
-    },
-    popToTop: async (...args: any[]) => {
-      const routeName = args[0];
-      const params = args.length > 1 ? args[1] : {};
-      const firstScreen = args.length > 2 ? args[2] : '';
-      const index = args.length > 3 ? args[3] : 1;
+    if (navigationRef.current) {
+      await navigationRef.current.navigate(routeName, params);
+    }
+  },
+  popToTop: async (...args: any[]) => {
+    const routeName = args[0];
+    const params = args.length > 1 ? args[1] : {};
+    const firstScreen = args.length > 2 ? args[2] : '';
+    const index = args.length > 3 ? args[3] : 1;
 
-      if (navigationRef.current) {
-        const routes = params
-          ? [{name: routeName, params}]
-          : [{name: routeName}];
+    if (navigationRef.current) {
+      const routes = params ? [{ name: routeName, params }] : [{ name: routeName }];
 
-        if (firstScreen && firstScreen.length > 0) {
-          navigationRef.current.dispatch(
-            CommonActions.reset({
-              index,
-              routes: [{name: firstScreen}, ...routes],
-            }),
-          );
-        } else {
-          navigationRef.current.dispatch(
-            CommonActions.reset({
-              index,
-              routes,
-            }),
-          );
-        }
-      }
-    },
-    replace: (...args: any[]) => {
-      const routeName = args[0] as string;
-      const params = (args.length > 1 ? args[1] : {}) as {};
-
-      if (navigationRef.current) {
-        navigationRef.current.dispatch(StackActions.replace(routeName, params));
-      }
-    },
-    reset: (...args: any[]) => {
-      const routeName = args[0] as string;
-      const params = (args.length > 1 ? args[1] : {}) as {};
-
-      if (navigationRef.current) {
-        navigationRef.current.dispatch(
-          CommonActions.navigate(routeName, params),
+      if (firstScreen && firstScreen.length > 0) {
+        await navigationRef.current.dispatch(
+          CommonActions.reset({
+            index,
+            routes: [{ name: firstScreen }, ...routes]
+          })
+        );
+      } else {
+        await navigationRef.current.dispatch(
+          CommonActions.reset({
+            index,
+            routes
+          })
         );
       }
-    },
-  };
-};
+    }
+  },
+  replace: (...args: any[]) => {
+    const routeName = args[0] as string;
+    const params = (args.length > 1 ? args[1] : {}) as {};
+
+    if (navigationRef.current) {
+      navigationRef.current.dispatch(StackActions.replace(routeName, params));
+    }
+  },
+  reset: (...args: any[]) => {
+    const routeName = args[0] as string;
+    const params = (args.length > 1 ? args[1] : {}) as {};
+
+    if (navigationRef.current) {
+      navigationRef.current.dispatch(CommonActions.navigate(routeName, params));
+    }
+  }
+});

@@ -1,5 +1,6 @@
-import { LoginActionTypes } from './types';
 import { loginReducerType } from '../types';
+
+import { LoginActionTypes } from './types';
 
 export const initialState: loginReducerType = {
   clientCPF: ''

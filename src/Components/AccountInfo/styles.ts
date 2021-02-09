@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const Styles = StyleSheet.create({
   container: {
@@ -11,17 +11,17 @@ const Styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: '#FCFCFC',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   inicials: {
     color: '#002D80',
-    fontSize: 14,
+    fontSize: 14
   },
   infoContainer: {
     flexDirection: 'column',
     paddingLeft: 16,
     flex: 1,
-    fontSize: 14,
+    fontSize: 14
   },
   nameLine: {
     color: '#FCFCFC'
