@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import Address from './Address';
 import Document from './Document';
+import MaritalStatus from './MaritalStatus';
 import Finish from './Finish';
 import Name from './Name';
 import Password from './Password';
@@ -59,9 +60,18 @@ const OnboardingNavigator = () => (
           backgroundColor: '#002D80'
         },
         headerTintColor: '#FFF',
-        headerHideShadow: true
+        headerHideShadow: true,
       }}
     />
+    <Stack.Screen name="MaritalStatus" component={MaritalStatus} 
+      options={{
+      headerTitle: 'Criar conta',
+      headerStyle: {
+        backgroundColor: '#002D80',
+      },
+      headerTintColor: '#FFF',
+      headerHideShadow: true,
+    }}/>
     <Stack.Screen
       name="Password"
       component={Password}

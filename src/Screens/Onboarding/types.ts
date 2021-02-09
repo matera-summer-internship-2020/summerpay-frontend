@@ -4,6 +4,7 @@ export type OnboardingStackParamList = {
   Document: undefined;
   Name: undefined;
   Phone: undefined;
+  MaritalStatus: undefined;
   Address: undefined;
   Password: undefined;
   Finish: undefined;
