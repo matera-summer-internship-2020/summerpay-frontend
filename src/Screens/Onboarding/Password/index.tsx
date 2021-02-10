@@ -8,17 +8,13 @@ import ButtonComponent from '../../../Components/ButtonComponent';
 import GenericInput from '../../../Components/GenericInput';
 import ProgressBar from '../../../Components/ProgressBar';
 
-import { changePasswordAction } from '../../../Ducks/Onboarding/Actions';
-import { CentralNavigationService } from '../../../Services/Navigation';
-
-import { OnboardingStackParamList } from '../types';
+import { changePasswordAction, createAccountAction } from '../../../Ducks/Onboarding/Actions';
 
 import Styles from './styles';
 
 const Password: React.FunctionComponent = () => {
   const [firstInputValue, setFirstInputValue] = React.useState<string>('');
   const [secondInputValue, setSecondInputValue] = React.useState<string>('');
-  const centralNavigationService = CentralNavigationService<OnboardingStackParamList>();
   const dispatch = useDispatch();
 
   const onFirstInputChange = (value: string): void => {
@@ -68,7 +64,7 @@ const Password: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     dispatch(changePasswordAction(secondInputValue));
-    centralNavigationService.navigate('Finish');
+    dispatch(createAccountAction());
   };
 
   return (

@@ -36,3 +36,10 @@ export const changePasswordAction = (payload: string) => ({
   type: OnboardingActionTypes.CHANGE_PASSWORD
 });
 
+export const createAccountAction = () => ({
+  type: OnboardingActionTypes.CREATE_ACCOUNT
+});
+
+export const clearOnboardingReducerAction = () => ({
+  type: OnboardingActionTypes.CLEAR_ONBOARDING_REDUCER
+});
