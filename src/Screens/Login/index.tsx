@@ -9,7 +9,7 @@ import LoginBackground from '../../Assets/Images/login-background.svg';
 import Logo from '../../Assets/Images/logo.svg';
 import ButtonComponent from '../../Components/ButtonComponent';
 import GenericInput from '../../Components/GenericInput';
-import { changeClientCpfAction } from '../../Ducks/Login/Actions';
+import { loginAction } from '../../Ducks/Login/Actions';
 import { cpfMask } from '../../Helpers/Masks';
 import { CentralNavigationService } from '../../Services/Navigation';
 import { AppStackParamList } from '../../types';
@@ -35,7 +35,12 @@ const Login: React.FunctionComponent = () => {
   };
 
   const onLoginPress = (): void => {
-    dispatch(changeClientCpfAction(cpfValue.replace(/\D/g, '')));
+    dispatch(
+      loginAction({
+        clientCPF: cpfValue.replace(/\D/g, ''),
+        clientPassword: passwordValue
+      })
+    );
   };
 
   return (

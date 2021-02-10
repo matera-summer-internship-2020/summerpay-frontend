@@ -1,22 +1,27 @@
-import { all, takeLatest, call, put, select } from 'redux-saga/effects';
+import { Toast } from 'native-base';
+import { all, takeLatest, call } from 'redux-saga/effects';
 
 import api from '../../Services/Api';
 
+import { CentralNavigationService } from '../../Services/Navigation';
+import { AppStackParamList } from '../../types';
+
 import { LoginActionTypes } from './types';
 
-/*
-* Exemplo de uso da "Api":
-1) GET: yield call(api.get, '/profile');
-2) POST: yield call(api.post, '/login', objetoComUsuarioSenha);
-*/
-
 export function* login(action: any) {
-  // TODO: recuperar usuário (do Reducer) e senha (da Action)
+  const { clientCPF, clientPassword } = action.payload;
+  const centralNavigationService = CentralNavigationService<AppStackParamList>();
 
   try {
-    // Tratar resposta da API
+    yield call(api.post, 'http://10.0.2.2:8080/authentication/login', {
+      clientCPF,
+      clientPassword
+    });
+    // centralNavigationService.navigate('Home');
   } catch (error) {
-    // TODO: Tratar erro genério não dependente da API
+    Toast.show({
+      text: error?.response?.data?.message ?? 'Erro genérico!'
+    });
   }
 }
 
