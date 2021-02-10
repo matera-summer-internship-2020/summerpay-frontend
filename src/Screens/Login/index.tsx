@@ -77,11 +77,7 @@ const Login: React.FunctionComponent = () => {
         />
       </View>
       <Text style={Styles.textSignIn}>Não possui conta ainda?</Text>
-      <TouchableOpacity onPress={() => void {}} style={Styles.buttonSignIn}>
-        {/* <TouchableOpacity
-      onPress={() => centralNavigationService.navigate("Onboarding")} 
-      style={Styles.buttonSignIn}
-      > */}
+      <TouchableOpacity onPress={() => centralNavigationService.navigate('Onboarding')} style={Styles.buttonSignIn}>
         <Text style={Styles.textButtonSignIn}>Cadastre-se aqui</Text>
       </TouchableOpacity>
     </Container>

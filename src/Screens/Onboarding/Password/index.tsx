@@ -68,12 +68,13 @@ const Password: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     dispatch(changePasswordAction(secondInputValue));
-    // centralNavigationService.navigate('Finish');
+    centralNavigationService.navigate('Finish');
   };
 
   return (
     <Container style={Styles.container}>
-      <ProgressBar currentStep={7} numberOfSteps={7} />
+      {/* TODO: change number of steps if we add confirmation screen */}
+      <ProgressBar currentStep={6} numberOfSteps={6} />
       <ScrollView style={Styles.inputAndLabelView}>
         <Text style={Styles.instructionText}>Por fim, insira uma senha numérica de 6 dígitos e confime:</Text>
         <View style={Styles.inputView}>

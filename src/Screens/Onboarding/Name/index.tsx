@@ -26,8 +26,7 @@ const Name: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     dispatch(changeNameAction(inputValue));
-
-    // centralNavigationService.navigate('Document');
+    centralNavigationService.navigate('Document');
   };
 
   const validateInput = (input: string): boolean => {
@@ -38,7 +37,8 @@ const Name: React.FunctionComponent = () => {
 
   return (
     <Container style={Styles.container}>
-      <ProgressBar currentStep={1} numberOfSteps={7} />
+      {/* TODO: change number of steps if we add confirmation screen */}
+      <ProgressBar currentStep={1} numberOfSteps={6} />
       <Container style={Styles.inputAndLabelContainer}>
         <Text style={Styles.instructionText}>Para começar, qual é o seu nome completo?</Text>
         <View style={Styles.inputView}>

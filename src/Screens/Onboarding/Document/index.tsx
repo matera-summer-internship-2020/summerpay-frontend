@@ -29,7 +29,6 @@ const Document: React.FunctionComponent = () => {
 
   const onPress = (): void => {
     const newIdentityDocumentEntityList: identityDocumentEntity[] = [
-      ...identityDocumentEntityList,
       {
         identityDocumentTypeEntity: {
           identityDocumentTypeId: 2
@@ -38,13 +37,13 @@ const Document: React.FunctionComponent = () => {
       }
     ];
     dispatch(changeIdentityDocumentEntityListAction(newIdentityDocumentEntityList));
-    // TODO uncomment when the phone screen is created
-    // centralNavigationService.navigate('Phone')
+    centralNavigationService.navigate('Phone');
   };
 
   return (
     <Container style={Styles.container}>
-      <ProgressBar currentStep={2} numberOfSteps={7} />
+      {/* TODO: change number of steps if we add confirmation screen */}
+      <ProgressBar currentStep={2} numberOfSteps={6} />
       <Container style={Styles.inputAndLabelContainer}>
         <Text style={Styles.textLabel}>Agora, vamos precisar do seu CPF:</Text>
         <View style={Styles.inputView}>

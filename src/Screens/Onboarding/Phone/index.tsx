@@ -38,12 +38,13 @@ const Phone: React.FunctionComponent = () => {
 
     dispatch(changePhoneAction(newTelephoneType));
 
-    // centralNavigationService.navigate('MaritalStatus')
+    centralNavigationService.navigate('MaritalStatus');
   };
 
   return (
     <Container style={Styles.container}>
-      <ProgressBar currentStep={3} numberOfSteps={7} />
+      {/* TODO: change number of steps if we add confirmation screen */}
+      <ProgressBar currentStep={3} numberOfSteps={6} />
       <Container style={Styles.inputAndLabelContainer}>
         <Text style={Styles.instructionText}>Qual seu número de celular e DDD?</Text>
         <View style={Styles.inputView}>
