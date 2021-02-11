@@ -3,6 +3,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 export type AppStackParamList = {
   Login: undefined;
   Onboarding: undefined;
+  Configuration: undefined;
 };
 
 export type LoginScreenNavigationProp = StackNavigationProp<AppStackParamList, 'Login'>;
@@ -23,8 +24,8 @@ export type Telephone = {
 };
 
 export type MaritalStatusEntity = {
-  maritalStatus: string,
-  maritalStatusId: number 
+  maritalStatus: string;
+  maritalStatusId: number;
 };
 
 export type identityDocumentEntity = {
