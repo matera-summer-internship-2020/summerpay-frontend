@@ -1,6 +1,6 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, ActivityIndicator } from 'react-native';
 
 import { useDispatch } from 'react-redux';
 
@@ -15,6 +15,7 @@ import Styles from './styles';
 const Password: React.FunctionComponent = () => {
   const [firstInputValue, setFirstInputValue] = React.useState<string>('');
   const [secondInputValue, setSecondInputValue] = React.useState<string>('');
+  const [loadingSpinner, setloadingSpinner] = React.useState<boolean>(false);
   const dispatch = useDispatch();
 
   const onFirstInputChange = (value: string): void => {
@@ -63,12 +64,14 @@ const Password: React.FunctionComponent = () => {
   };
 
   const onPress = (): void => {
+    setloadingSpinner(true);
     dispatch(changePasswordAction(secondInputValue));
     dispatch(createAccountAction());
   };
 
   return (
     <Container style={Styles.container}>
+      {loadingSpinner ? <ActivityIndicator style={Styles.loadingSpinner} size="large" color="#CC7600" /> : null}
       {/* TODO: change number of steps if we add confirmation screen */}
       <ProgressBar currentStep={6} numberOfSteps={6} />
       <ScrollView style={Styles.inputAndLabelView}>
