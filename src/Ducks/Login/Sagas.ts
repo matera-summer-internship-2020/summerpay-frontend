@@ -13,7 +13,7 @@ export function* login(action: any) {
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
 
   try {
-    yield call(api.post, 'http://10.0.2.2:8080/authentication/login', {
+    yield call(api().post, '/authentication/login', {
       clientCPF,
       clientPassword
     });

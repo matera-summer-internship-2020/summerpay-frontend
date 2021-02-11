@@ -6,18 +6,19 @@ import { OnboardingStackParamList } from '../../Screens/Onboarding/types';
 import api from '../../Services/Api';
 import { CentralNavigationService } from '../../Services/Navigation';
 import { AddressEntity, identityDocumentEntity, MaritalStatusEntity, Telephone } from '../../types';
+import { root } from '../types';
 
 import { OnboardingActionTypes } from './types';
 
-export const getName = (state: any): string => state.onboarding.name;
-export const getIdentityDocumentList = (state: any): identityDocumentEntity[] =>
+export const getName = (state: root): string => state.onboarding.name;
+export const getIdentityDocumentList = (state: root): identityDocumentEntity[] =>
   state.onboarding.identityDocumentEntityList;
-export const getPhone = (state: any): Telephone => state.onboarding.phone;
-export const getMaritalStatus = (state: any): MaritalStatusEntity => state.onboarding.maritalStatus;
-export const getAddress = (state: any): AddressEntity => state.onboarding.address;
-export const getPassword = (state: any): string => state.onboarding.password;
+export const getPhone = (state: root): Telephone => state.onboarding.phone;
+export const getMaritalStatus = (state: root): MaritalStatusEntity => state.onboarding.maritalStatus;
+export const getAddress = (state: root): AddressEntity => state.onboarding.address;
+export const getPassword = (state: root): string => state.onboarding.password;
 
-export function* createClient(action: any) {
+export function* createClient() {
   const name: string = yield select(getName);
   const maritalStatus: MaritalStatusEntity = yield select(getMaritalStatus);
   const document: identityDocumentEntity[] = yield select(getIdentityDocumentList);
@@ -33,8 +34,8 @@ export function* createClient(action: any) {
   };
 
   try {
-    const response = yield call(api.post, 'http://10.0.2.2:8080/clients', clientBody);
-    yield call(() => createAddress(response.data.clientId));
+    const response = yield call(api().post, '/clients', clientBody);
+    yield call(createAddress, response.data.clientId);
   } catch (error) {
     Toast.show({
       text: error?.response?.data?.message ?? 'Erro ao cadastrar cliente!'
@@ -56,8 +57,8 @@ export function* createAddress(clientId: string) {
   };
 
   try {
-    yield call(api.post, `http://10.0.2.2:8080/clients/${clientId}/addresses`, addressBody);
-    yield call(() => createTelephone(clientId));
+    yield call(api().post, `/clients/${clientId}/addresses`, addressBody);
+    yield call(createTelephone, clientId);
   } catch (error) {
     Toast.show({
       text: error?.response?.data?.message ?? 'Erro ao cadastrar endereço!'
@@ -77,8 +78,8 @@ export function* createTelephone(clientId: string) {
   };
 
   try {
-    yield call(api.post, `http://10.0.2.2:8080/clients/${clientId}/telephones`, telephoneBody);
-    yield call(() => createAccount(clientId));
+    yield call(api().post, `/clients/${clientId}/telephones`, telephoneBody);
+    yield call(createAccount, clientId);
   } catch (error) {
     Toast.show({
       text: error?.response?.data?.message ?? 'Erro ao cadastrar celular!'
@@ -99,7 +100,7 @@ export function* createAccount(clientId: string) {
       balance: Math.floor(Math.random() * 1000) + 1
     };
 
-    yield call(api.post, `http://10.0.2.2:8082/clients/${clientId}/accounts`, accountBody);
+    yield call(api('8082').post, `/clients/${clientId}/accounts`, accountBody);
     centralNavigationService.navigate('Finish');
   } catch (error) {
     Toast.show({
