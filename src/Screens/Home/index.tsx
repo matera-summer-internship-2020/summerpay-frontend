@@ -2,7 +2,6 @@ import { Container, Text, View } from 'native-base';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-// eslint-disable-next-line import/no-unresolved
 import Config from '../../Assets/Images/config.svg';
 import HomeAccountBackground from '../../Assets/Images/home-account-background.svg';
 import Money from '../../Assets/Images/money.svg';
