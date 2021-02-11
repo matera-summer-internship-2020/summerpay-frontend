@@ -1,6 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
+import ChangeData from './ChangeData/ChangeDataScreen';
 import ConfigurationScreen from './ConfigurationScreen';
 import DeleteAccount from './DeleteAccount';
 
@@ -15,6 +16,18 @@ const ConfigurationNavigator = () => (
       component={ConfigurationScreen}
       options={{
         headerTitle: 'Configurações',
+        headerStyle: {
+          backgroundColor: '#002D80'
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true
+      }}
+    />
+    <Stack.Screen
+      name="ChangeData"
+      component={ChangeData}
+      options={{
+        headerTitle: 'Alterar dados pessoais',
         headerStyle: {
           backgroundColor: '#002D80'
         },
