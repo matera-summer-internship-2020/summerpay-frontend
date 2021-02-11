@@ -25,7 +25,7 @@ export const initialState: onboardingReducerType = {
     number: 0,
     city: ''
   },
-  password: '',
+  password: ''
 };
 
 export const onboardingReducer = (state = initialState, action: any) => {
@@ -49,7 +49,7 @@ export const onboardingReducer = (state = initialState, action: any) => {
         ...state,
         identityDocumentEntityList: payload
       };
-    
+
     case OnboardingActionTypes.CHANGE_MARITAL_STATUS:
       return {
         ...state,
@@ -67,6 +67,9 @@ export const onboardingReducer = (state = initialState, action: any) => {
         ...state,
         password: payload
       };
+
+    case OnboardingActionTypes.CLEAR_ONBOARDING_REDUCER:
+      return initialState;
 
     default:
       return state;

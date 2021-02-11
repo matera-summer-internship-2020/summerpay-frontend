@@ -1,8 +1,10 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import ConfirmOnbording from '../../../Assets/Images/confirm.svg';
 import ButtonComponent from '../../../Components/ButtonComponent';
+import { clearOnboardingReducerAction } from '../../../Ducks/Onboarding/Actions';
 
 import { CentralNavigationService } from '../../../Services/Navigation';
 import { AppStackParamList } from '../../../types';
@@ -11,8 +13,10 @@ import Styles from './styles';
 
 const Phone: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
+  const dispatch = useDispatch();
 
   const onPress = (): void => {
+    dispatch(clearOnboardingReducerAction());
     centralNavigationService.reset('Login');
   };
 
