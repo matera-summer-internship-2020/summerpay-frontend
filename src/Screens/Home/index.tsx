@@ -20,17 +20,6 @@ const Home: React.FunctionComponent = () => {
   // End Example
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
   const [showOrHideValue, setShowOrHideValue] = React.useState<boolean>(false);
-  const [showOrHideText, setShowOrHideText] = React.useState<string>('Ocultar');
-
-  const onShowOrHidePress = (): void => {
-    if (!showOrHideValue) {
-      setShowOrHideValue(true);
-      setShowOrHideText('Exibir');
-    } else {
-      setShowOrHideValue(false);
-      setShowOrHideText('Ocultar');
-    }
-  };
 
   return (
     <Container style={Styles().mainContainer}>
@@ -41,8 +30,12 @@ const Home: React.FunctionComponent = () => {
       <View style={Styles().balanceView}>
         <Text style={Styles().balanceText}>Saldo Atual</Text>
         <Text style={Styles({ hide: showOrHideValue }).balanceNumberText}>R$ {balance}</Text>
-        <TouchableOpacity onPress={onShowOrHidePress}>
-          <Text style={Styles().hideAndShowText}>{showOrHideText}</Text>
+        <TouchableOpacity onPress={() => setShowOrHideValue(!showOrHideValue)}>
+          {showOrHideValue ? (
+            <Text style={Styles().hideAndShowText}>Exibir</Text>
+          ) : (
+            <Text style={Styles().hideAndShowText}>Ocultar</Text>
+          )}
         </TouchableOpacity>
       </View>
       <View style={Styles().buttonsView}>

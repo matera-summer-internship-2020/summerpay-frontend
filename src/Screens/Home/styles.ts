@@ -37,8 +37,8 @@ export const Styles = (props?: IProps) =>
       fontSize: 28,
       fontWeight: 'bold',
       marginVertical: '15%',
-      backgroundColor: props && props?.hide ? '#E0E0E0' : '#FCFCFC',
-      color: props && props?.hide ? '#E0E0E0' : '#0F0F0F'
+      backgroundColor: props && props.hide ? '#E0E0E0' : '#FCFCFC',
+      color: props && props.hide ? '#E0E0E0' : '#0F0F0F'
     },
     hideAndShowText: {
       fontSize: 20,
