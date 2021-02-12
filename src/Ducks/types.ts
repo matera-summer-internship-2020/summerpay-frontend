@@ -19,6 +19,10 @@ export type clientReducerType = {
   accountData: Account;
 };
 
+export type passwordReducerType = {
+  passwordValidated: boolean;
+};
+
 export type root = {
   appStatus: appStatusReducerType;
   onboarding: onboardingReducerType;

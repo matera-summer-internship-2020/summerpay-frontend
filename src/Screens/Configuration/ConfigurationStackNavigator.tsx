@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import ChangeData from './ChangeData/ChangeDataScreen';
+import ChangePasswordNavigator from './ChangePassword/ChangePasswordStackNavigator';
 import ConfigurationScreen from './ConfigurationScreen';
 import DeleteAccount from './DeleteAccount';
 
@@ -10,7 +11,7 @@ import { ConfigurationStackParamList } from './types';
 const Stack = createNativeStackNavigator<ConfigurationStackParamList>();
 
 const ConfigurationNavigator = () => (
-  <Stack.Navigator initialRouteName="ConfigurationScreen">
+  <Stack.Navigator initialRouteName="ConfigurationScreen" screenOptions={{ headerShown: false }}>
     <Stack.Screen
       name="ConfigurationScreen"
       component={ConfigurationScreen}
@@ -35,6 +36,7 @@ const ConfigurationNavigator = () => (
         headerHideShadow: true
       }}
     />
+    <Stack.Screen name="ChangePassword" component={ChangePasswordNavigator} />
     <Stack.Screen
       name="DeleteAccount"
       component={DeleteAccount}
