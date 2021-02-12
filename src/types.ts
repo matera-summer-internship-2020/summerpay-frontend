@@ -4,6 +4,7 @@ export type AppStackParamList = {
   Login: undefined;
   Onboarding: undefined;
   Home: undefined;
+  Configuration: undefined;
 };
 
 export type LoginScreenNavigationProp = StackNavigationProp<AppStackParamList, 'Login'>;
