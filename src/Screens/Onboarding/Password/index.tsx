@@ -71,7 +71,7 @@ const Password: React.FunctionComponent = () => {
 
   return (
     <Container style={Styles.container}>
-      {loadingSpinner ? <ActivityIndicator style={Styles.loadingSpinner} size="large" color="#CC7600" /> : null}
+      <ActivityIndicator style={Styles.loadingSpinner} animating={loadingSpinner} size="large" color="#CC7600" />
       {/* TODO: change number of steps if we add confirmation screen */}
       <ProgressBar currentStep={6} numberOfSteps={6} />
       <ScrollView style={Styles.inputAndLabelView}>
