@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
 import ChangeData from './ChangeData/ChangeDataScreen';
-import ChangePassword from './ChangePassword/EnterOlderPwd';
+import ChangePasswordNavigator from './ChangePassword/ChangePasswordStackNavigator';
 import ConfigurationScreen from './ConfigurationScreen';
 
 import { ConfigurationStackParamList } from './types';
@@ -10,7 +10,7 @@ import { ConfigurationStackParamList } from './types';
 const Stack = createNativeStackNavigator<ConfigurationStackParamList>();
 
 const ConfigurationNavigator = () => (
-  <Stack.Navigator initialRouteName="ConfigurationScreen">
+  <Stack.Navigator initialRouteName="ConfigurationScreen" screenOptions={{ headerShown: false }}>
     <Stack.Screen
       name="ConfigurationScreen"
       component={ConfigurationScreen}
@@ -35,19 +35,7 @@ const ConfigurationNavigator = () => (
         headerHideShadow: true
       }}
     />
-    <Stack.Screen
-      name="ChangePassword"
-      component={ChangePassword}
-      options={{
-        headerTitle: 'Alterar senha',
-        headerStyle: {
-          backgroundColor: '#002D80'
-        },
-        headerTintColor: '#FFF',
-        headerHideShadow: true,
-        headerHideBackButton: true
-      }}
-    />
+    <Stack.Screen name="ChangePassword" component={ChangePasswordNavigator} />
   </Stack.Navigator>
 );
 
