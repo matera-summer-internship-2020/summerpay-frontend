@@ -31,6 +31,7 @@ const Configuration: React.FunctionComponent = () => {
         />
       </View>
       <View style={Styles.buttonView}>
+        {/* Change path to delete account */}
         <ButtonComponent
           disabled={false}
           mainButton={false}
@@ -40,6 +41,7 @@ const Configuration: React.FunctionComponent = () => {
         />
       </View>
       <View style={Styles.buttonView}>
+        {/* Change path to logout */}
         <ButtonComponent
           disabled={false}
           mainButton={false}
