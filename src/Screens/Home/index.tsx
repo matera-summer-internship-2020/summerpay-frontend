@@ -31,11 +31,7 @@ const Home: React.FunctionComponent = () => {
         <Text style={Styles().balanceText}>Saldo Atual</Text>
         <Text style={Styles({ hide: showOrHideValue }).balanceNumberText}>R$ {balance}</Text>
         <TouchableOpacity onPress={() => setShowOrHideValue(!showOrHideValue)}>
-          {showOrHideValue ? (
-            <Text style={Styles().hideAndShowText}>Exibir</Text>
-          ) : (
-            <Text style={Styles().hideAndShowText}>Ocultar</Text>
-          )}
+          <Text style={Styles().hideAndShowText}>{showOrHideValue ? 'Exibir' : 'Ocultar'}</Text>
         </TouchableOpacity>
       </View>
       <View style={Styles().buttonsView}>
