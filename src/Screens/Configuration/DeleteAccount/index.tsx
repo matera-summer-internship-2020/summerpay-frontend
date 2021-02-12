@@ -1,10 +1,13 @@
 import { Container, View } from 'native-base';
 import React from 'react';
 import { Text } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import SadFace from '../../../Assets/Images/sad-face.svg';
 import ButtonComponent from '../../../Components/ButtonComponent';
 import GenericInput from '../../../Components/GenericInput';
+
+import { deleteAccountAction } from '../../../Ducks/DeleteAccount/Actions';
 import { CentralNavigationService } from '../../../Services/Navigation';
 import { ConfigurationStackParamList } from '../types';
 
@@ -14,12 +17,13 @@ const DeleteAccount: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<ConfigurationStackParamList>();
   const [passwordInput, setpasswordInput] = React.useState<string>('');
   const [deleteConfirmation, setdeleteConfirmation] = React.useState<boolean>(false);
+  const dispatch = useDispatch();
 
   const onDeletePress = (): void => {
     // delete account
     if (deleteConfirmation) {
-      console.log(deleteConfirmation);
-      console.log('Deletou');
+      dispatch(deleteAccountAction);
+      // console.log('Deletou');
     } else {
       setdeleteConfirmation(true);
     }
