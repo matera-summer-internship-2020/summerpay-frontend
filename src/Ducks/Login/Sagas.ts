@@ -13,7 +13,6 @@ export function* login(action: any) {
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
 
   try {
-    console.log(clientCPF);
     yield call(api().post, '/authentication/login', {
       clientCPF,
       clientPassword
