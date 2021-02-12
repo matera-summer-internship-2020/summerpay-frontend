@@ -24,4 +24,5 @@ export type loginReducerType = {
 export type root = {
   appStatus: appStatusReducerType;
   onboarding: onboardingReducerType;
+  login: loginReducerType;
 };
