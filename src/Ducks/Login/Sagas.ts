@@ -22,7 +22,7 @@ export function* login(action: any) {
       payload: client.data.clientId,
       type: LoginActionTypes.SAVE_CLIENTID
     });
-    // centralNavigationService.navigate('Home');
+    centralNavigationService.navigate('Home');
   } catch (error) {
     Toast.show({
       text: error?.response?.data?.message ?? 'Erro genérico!'
