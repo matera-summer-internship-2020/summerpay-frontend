@@ -17,7 +17,7 @@ export function* login(action: any) {
       clientCPF,
       clientPassword
     });
-    // centralNavigationService.navigate('Home');
+    centralNavigationService.navigate('Home');
   } catch (error) {
     Toast.show({
       text: error?.response?.data?.message ?? 'Erro genérico!'
