@@ -20,10 +20,8 @@ const DeleteAccount: React.FunctionComponent = () => {
   const dispatch = useDispatch();
 
   const onDeletePress = (): void => {
-    // delete account
     if (deleteConfirmation) {
-      dispatch(deleteAccountAction);
-      // console.log('Deletou');
+      dispatch(deleteAccountAction({ password: passwordInput }));
     } else {
       setdeleteConfirmation(true);
     }
