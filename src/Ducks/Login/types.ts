@@ -1,3 +1,4 @@
 export enum LoginActionTypes {
-  LOGIN = 'LOGIN'
+  LOGIN = 'LOGIN',
+  SAVE_CLIENTID = 'SAVE_CLIENTID'
 }
