@@ -17,12 +17,17 @@ export type onboardingReducerType = {
   password: string;
 };
 
-export type loginReducerType = {
+export type clientReducerType = {
+  addressList: AddressEntity[];
   clientId: string;
+  identityDocumentEntityList: identityDocumentEntity[];
+  maritalStatusEntity: MaritalStatusEntity;
+  name: string;
+  telephoneList: Telephone[];
 };
 
 export type root = {
   appStatus: appStatusReducerType;
   onboarding: onboardingReducerType;
-  login: loginReducerType;
+  client: clientReducerType;
 };

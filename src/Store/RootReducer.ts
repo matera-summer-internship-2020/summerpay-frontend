@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
 import { appStatusReducer } from '../Ducks/AppStatus/Reducer';
-import { loginReducer } from '../Ducks/Login/Reducer';
 import { onboardingReducer } from '../Ducks/Onboarding/Reducer';
+import { clientReducer } from '../Ducks/Client/Reducer';
 
 const appReducer = combineReducers({
   appStatus: appStatusReducer,
   onboarding: onboardingReducer,
-  login: loginReducer
+  client: clientReducer
 });
 
 const rootReducer = (state: any, action: any) => appReducer(state, action);

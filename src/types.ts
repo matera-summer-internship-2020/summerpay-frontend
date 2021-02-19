@@ -44,3 +44,12 @@ export type AddressEntity = {
   number: number;
   city: string;
 };
+
+export type Client = {
+  addressList: AddressEntity[];
+  clientId: string;
+  identityDocumentEntityList: identityDocumentEntity[];
+  maritalStatusEntity: MaritalStatusEntity;
+  name: string;
+  telephoneList: Telephone[];
+};
