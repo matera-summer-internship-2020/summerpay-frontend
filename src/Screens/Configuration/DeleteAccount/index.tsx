@@ -15,15 +15,15 @@ import Styles from './styles';
 
 const DeleteAccount: React.FunctionComponent = () => {
   const centralNavigationService = CentralNavigationService<ConfigurationStackParamList>();
-  const [passwordInput, setpasswordInput] = React.useState<string>('');
-  const [deleteConfirmation, setdeleteConfirmation] = React.useState<boolean>(false);
+  const [passwordInput, setPasswordInput] = React.useState<string>('');
+  const [deleteConfirmation, setDeleteConfirmation] = React.useState<boolean>(false);
   const dispatch = useDispatch();
 
   const onDeletePress = (): void => {
     if (deleteConfirmation) {
       dispatch(deleteAccountAction({ password: passwordInput }));
     } else {
-      setdeleteConfirmation(true);
+      setDeleteConfirmation(true);
     }
   };
 
@@ -35,11 +35,11 @@ const DeleteAccount: React.FunctionComponent = () => {
             <Text style={Styles.passwordText}>Confirme sua senha para deletar sua conta</Text>
             <View style={Styles.inputView}>
               <GenericInput
-                keyboardType={'default'}
+                keyboardType={'numeric'}
                 hidePassword={true}
                 placeholder={'-   -   -   -   -   -   -   -'}
                 value={passwordInput}
-                onChange={setpasswordInput}
+                onChange={setPasswordInput}
               />
             </View>
           </View>
