@@ -31,7 +31,8 @@ const ConfigurationNavigator = () => (
           backgroundColor: '#002D80'
         },
         headerTintColor: '#FFF',
-        headerHideShadow: true
+        headerHideShadow: true,
+        headerHideBackButton: true
       }}
     />
   </Stack.Navigator>
