@@ -31,12 +31,11 @@ const Configuration: React.FunctionComponent = () => {
         />
       </View>
       <View style={Styles.buttonView}>
-        {/* Change path to delete account */}
         <ButtonComponent
           disabled={false}
           mainButton={false}
           text={'Deletar conta'}
-          onPress={() => centralNavigationService.navigate('ChangePassword')}
+          onPress={() => centralNavigationService.navigate('DeleteAccount')}
           size={'l'}
         />
       </View>

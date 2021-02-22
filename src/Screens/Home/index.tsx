@@ -40,8 +40,10 @@ const Home: React.FunctionComponent = () => {
           <Money />
           <Text>Transferir</Text>
         </TouchableOpacity>
-        {/* Change button path to config */}
-        <TouchableOpacity onPress={() => centralNavigationService.navigate('Home')} style={Styles().individualButton}>
+        <TouchableOpacity
+          onPress={() => centralNavigationService.navigate('Configuration')}
+          style={Styles().individualButton}
+        >
           <Config />
           <Text>Configurações</Text>
         </TouchableOpacity>
