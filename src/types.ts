@@ -53,3 +53,10 @@ export type Client = {
   name: string;
   telephoneList: Telephone[];
 };
+
+export type Account = {
+  accountId: string;
+  accountNumber: string;
+  agency: string;
+  balance: number;
+};

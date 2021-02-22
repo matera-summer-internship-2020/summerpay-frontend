@@ -3,31 +3,46 @@ import { clientReducerType } from '../types';
 import { ClientActionTypes } from './types';
 
 export const initialState: clientReducerType = {
-  addressList: [],
-  clientId: '',
-  identityDocumentEntityList: [],
-  maritalStatusEntity: {
-    maritalStatusId: 0,
-    maritalStatus: ''
+  clientData: {
+    addressList: [],
+    clientId: '',
+    identityDocumentEntityList: [],
+    maritalStatusEntity: {
+      maritalStatusId: 0,
+      maritalStatus: ''
+    },
+    name: '',
+    telephoneList: []
   },
-  name: '',
-  telephoneList: []
+  accountData: {
+    accountId: '',
+    accountNumber: '',
+    agency: '',
+    balance: 0
+  }
 };
 
 export const clientReducer = (state = initialState, action: any) => {
   const { payload } = action;
 
   switch (action.type) {
-    case ClientActionTypes.SAVE_CLIENT:
+    case ClientActionTypes.SAVE_CLIENT_INFO:
       return {
-        addressList: payload.addressList,
-        clientId: payload.clientId,
-        identityDocumentEntityList: payload.identityDocumentEntityList,
-        maritalStatusEntity: payload.maritalStatusEntity,
-        name: payload.name,
-        telephoneList: payload.telephoneList
+        clientData: {
+          addressList: payload.clientData.addressList,
+          clientId: payload.clientData.clientId,
+          identityDocumentEntityList: payload.clientData.identityDocumentEntityList,
+          maritalStatusEntity: payload.clientData.maritalStatusEntity,
+          name: payload.clientData.name,
+          telephoneList: payload.clientData.telephoneList
+        },
+        accountData: {
+          accountId: payload.accountData.accountId,
+          accountNumber: payload.accountData.accountNumber,
+          agency: payload.accountData.agency,
+          balance: payload.accountData.balance
+        }
       };
-
     default:
       return state;
   }

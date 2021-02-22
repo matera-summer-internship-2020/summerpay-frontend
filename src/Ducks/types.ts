@@ -1,7 +1,4 @@
-import { Telephone } from '../types';
-import { identityDocumentEntity } from '../types';
-import { MaritalStatusEntity } from '../types';
-import { AddressEntity } from '../types';
+import { Telephone, identityDocumentEntity, MaritalStatusEntity, AddressEntity, Client, Account } from '../types';
 
 export type appStatusReducerType = {
   appState: string;
@@ -18,12 +15,8 @@ export type onboardingReducerType = {
 };
 
 export type clientReducerType = {
-  addressList: AddressEntity[];
-  clientId: string;
-  identityDocumentEntityList: identityDocumentEntity[];
-  maritalStatusEntity: MaritalStatusEntity;
-  name: string;
-  telephoneList: Telephone[];
+  clientData: Client;
+  accountData: Account;
 };
 
 export type root = {

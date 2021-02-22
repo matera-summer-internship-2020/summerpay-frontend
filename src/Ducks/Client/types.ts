@@ -1,3 +1,3 @@
 export enum ClientActionTypes {
-  SAVE_CLIENT = 'SAVE_CLIENT'
+  SAVE_CLIENT_INFO = 'SAVE_CLIENT_INFO'
 }

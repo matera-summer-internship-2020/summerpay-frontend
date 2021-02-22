@@ -8,7 +8,7 @@ import { AppStackParamList } from '../../types';
 
 import { LoginActionTypes } from './types';
 
-import { Client } from '../../types';
+import { Client, Account } from '../../types';
 import { ClientActionTypes } from '../Client/types';
 
 export function* login(action: any) {
@@ -21,10 +21,12 @@ export function* login(action: any) {
       clientPassword
     });
     const client = yield call(api().get, `/clients/transfer/clientReceiver/${clientCPF}`);
-    const clientBody: Client = client.data;
+    const clientData: Client = client.data;
+    const account = yield call(api('8082').get, `/clients/${client.data.clientId}/accounts`);
+    const accountData: Account = account.data[0];
     yield put({
-      payload: clientBody,
-      type: ClientActionTypes.SAVE_CLIENT
+      payload: { clientData, accountData },
+      type: ClientActionTypes.SAVE_CLIENT_INFO
     });
     centralNavigationService.navigate('Home');
   } catch (error) {
