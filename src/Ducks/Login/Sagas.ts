@@ -11,6 +11,8 @@ import { LoginActionTypes } from './types';
 import { Client, Account } from '../../types';
 import { ClientActionTypes } from '../Client/types';
 
+import { storeData } from '../../Services/Storage';
+
 export function* login(action: any) {
   const { clientCPF, clientPassword } = action.payload;
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
@@ -28,6 +30,10 @@ export function* login(action: any) {
       payload: { clientData, accountData },
       type: ClientActionTypes.SAVE_CLIENT_INFO
     });
+    storeData('CPF', clientData.identityDocumentEntityList[0].identityDocument);
+    storeData('NAME', clientData.name);
+    storeData('AGENCY', accountData.agency);
+    storeData('ACCOUNT', accountData.accountNumber);
     centralNavigationService.navigate('Home');
   } catch (error) {
     Toast.show({

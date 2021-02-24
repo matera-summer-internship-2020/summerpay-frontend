@@ -22,6 +22,7 @@ export type Telephone = {
   };
   number: string;
   ddd: string;
+  telephoneId?: string;
 };
 
 export type MaritalStatusEntity = {
@@ -34,9 +35,11 @@ export type identityDocumentEntity = {
     identityDocumentTypeId: number;
   };
   identityDocument: string;
+  identityDocumentId?: string;
 };
 
 export type AddressEntity = {
+  addressId?: string;
   streetName: string;
   state: ValueType;
   zipCode: string;

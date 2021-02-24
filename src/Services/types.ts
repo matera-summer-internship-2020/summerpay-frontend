@@ -1,1 +1,1 @@
-export type StorageKey = 'NAME' | 'CPF';
+export type StorageKey = 'NAME' | 'CPF' | 'AGENCY' | 'ACCOUNT';
