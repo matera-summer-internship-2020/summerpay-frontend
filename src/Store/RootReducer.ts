@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 
 import { appStatusReducer } from '../Ducks/AppStatus/Reducer';
-import { onboardingReducer } from '../Ducks/Onboarding/Reducer';
 import { clientReducer } from '../Ducks/Client/Reducer';
+import { onboardingReducer } from '../Ducks/Onboarding/Reducer';
 
 const appReducer = combineReducers({
   appStatus: appStatusReducer,
