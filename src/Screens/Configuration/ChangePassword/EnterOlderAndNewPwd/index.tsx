@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ButtonComponent from '../../../../Components/ButtonComponent';
 import GenericInput from '../../../../Components/GenericInput';
 import { changePasswordAction, passwordValidationAction } from '../../../../Ducks/Password/Actions';
+import { PasswordActionTypes } from '../../../../Ducks/Password/types';
 import { CentralNavigationService } from '../../../../Services/Navigation';
 
 import { ConfigurationStackParamList } from '../../types';
@@ -40,6 +41,7 @@ const EnterOlderAndNewPwd: React.FunctionComponent = () => {
   };
 
   const onCancelButtonPress = (): void => {
+    dispatch({ payload: false, type: PasswordActionTypes.CHANGE_VALIDATED_PASSWORD });
     configurationNavigationService.reset('ConfigurationScreen');
   };
 
