@@ -93,19 +93,20 @@ const EnterOlderAndNewPwd: React.FunctionComponent = () => {
 
   return (
     <Container style={Styles.container}>
-      <ScrollView style={Styles.inputsView}>
-        <View style={Styles.inputView}>
-          <GenericInput
-            disabled={false}
-            hidePassword={true}
-            label={'Digite a sua senha atual'}
-            keyboardType={'numeric'}
-            placeholder={'-   -   -   -   -   -   -   -   -'}
-            value={olderPwdInputValue}
-            onChange={onOlderPwdInputValueChange}
-          />
-        </View>
-        {!showFields ? null : (
+      <ScrollView contentContainerStyle={Styles.inputsView}>
+        {!showFields ? (
+          <View style={Styles.inputView}>
+            <GenericInput
+              disabled={false}
+              hidePassword={true}
+              label={'Digite a sua senha atual'}
+              keyboardType={'numeric'}
+              placeholder={'-   -   -   -   -   -   -   -   -'}
+              value={olderPwdInputValue}
+              onChange={onOlderPwdInputValueChange}
+            />
+          </View>
+        ) : (
           <>
             <View style={Styles.inputView}>
               <GenericInput

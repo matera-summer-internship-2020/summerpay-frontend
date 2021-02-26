@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 const Styles = StyleSheet.create({
   container: {
     backgroundColor: '#002D80',
-    justifyContent: 'space-evenly',
     alignItems: 'center',
     paddingLeft: '5%',
     paddingRight: '5%',
@@ -16,14 +15,15 @@ const Styles = StyleSheet.create({
   },
 
   inputsView: {
-    width: '60%',
+    flexGrow: 1,
+    justifyContent: 'center',
     marginBottom: '10%'
   },
 
   inputView: {
     marginVertical: '15%',
     alignSelf: 'center',
-    width: '85%'
+    width: '100%'
   },
 
   buttonsView: {
