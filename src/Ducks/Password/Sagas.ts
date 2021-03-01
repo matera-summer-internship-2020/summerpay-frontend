@@ -37,7 +37,6 @@ export function* changePassword(action: any) {
   const changePasswordNavigationService = CentralNavigationService<ChangePasswordStackParamList>();
 
   try {
-    console.log('SAGA CHANGE PASSWORD');
     yield call(api().patch, `/authentication/${clientId}/change-password`, {
       password
     });
