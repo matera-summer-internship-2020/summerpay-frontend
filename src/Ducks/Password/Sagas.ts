@@ -8,14 +8,12 @@ import { CentralNavigationService } from '../../Services/Navigation';
 import { root } from '../types';
 
 import { PasswordActionTypes } from './types';
-// TODO uncomment lines 9, 14 and 36, and remove line 13 and 35,
-// when the Client reducer is ready
-// export const getClientId = (state: root): string => state.client.clientId;
+
+export const getClientId = (state: root): string => state.client.clientData.clientId;
 
 export function* validatePassword(action: any) {
   const password = action.payload;
-  const clientId = '203026c7-8f49-470a-a747-e7a09507d71e';
-  // const clientId: string = yield select(getClientId);
+  const clientId: string = yield select(getClientId);
 
   try {
     yield call(api().post, `/authentication/${clientId}/validate-password`, {
@@ -32,8 +30,7 @@ export function* validatePassword(action: any) {
 
 export function* changePassword(action: any) {
   const password = action.payload;
-  const clientId = '203026c7-8f49-470a-a747-e7a09507d71e';
-  // const clientId: string = yield select(getClientId);
+  const clientId: string = yield select(getClientId);
   const changePasswordNavigationService = CentralNavigationService<ChangePasswordStackParamList>();
 
   try {
