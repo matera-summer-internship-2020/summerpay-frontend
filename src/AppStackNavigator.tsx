@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import ConfigurationNavigator from './Screens/Configuration/ConfigurationStackNavigator';
 import Home from './Screens/Home';
 import Login from './Screens/Login';
-
 import OnboardingNavigator from './Screens/Onboarding/OnboardingStackNavigator';
 
 import { AppStackParamList } from './types';
