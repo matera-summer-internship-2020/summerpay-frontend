@@ -14,21 +14,8 @@ export const getAccountId = (state: root): string => state.client.accountData.ac
 export const getAddressId = (state: root): string | undefined => state.client.clientData.addressList[0].addressId;
 export const getTelephoneId = (state: root): string | undefined => state.client.clientData.telephoneList[0].telephoneId;
 
-export function* validatePassword(action: any) {
+export function* deleteAccount() {
   const clientId: string = yield select(getClientId);
-  const password: string = action.payload;
-
-  try {
-    yield call(api().post, `authentication/${clientId}/validate-password`, password);
-    yield call(deleteAccount, clientId);
-  } catch (error) {
-    Toast.show({
-      text: error?.response?.data?.message ?? 'Erro genérico!'
-    });
-  }
-}
-
-export function* deleteAccount(clientId: string) {
   const accountId: string = yield select(getAccountId);
   
   try {
@@ -80,4 +67,4 @@ export function* deleteClient(clientId: string) {
   }
 }
 
-export const deleteAccountSagas = all([takeLatest(DeleteAccountActionTypes.DELETE_ACCOUNT, validatePassword)]);
+export const deleteAccountSagas = all([takeLatest(DeleteAccountActionTypes.DELETE_ACCOUNT, deleteAccount)]);
