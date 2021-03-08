@@ -11,7 +11,7 @@ import { ConfigurationStackParamList } from './types';
 const Stack = createNativeStackNavigator<ConfigurationStackParamList>();
 
 const ConfigurationNavigator = () => (
-  <Stack.Navigator initialRouteName="ConfigurationScreen" screenOptions={{ headerShown: false }}>
+  <Stack.Navigator initialRouteName="ConfigurationScreen">
     <Stack.Screen
       name="ConfigurationScreen"
       component={ConfigurationScreen}
@@ -36,7 +36,19 @@ const ConfigurationNavigator = () => (
         headerHideShadow: true
       }}
     />
-    <Stack.Screen name="ChangePassword" component={ChangePasswordNavigator} />
+    <Stack.Screen
+      name="ChangePassword"
+      component={ChangePasswordNavigator}
+      options={{
+        headerTitle: 'Alterar senha',
+        headerStyle: {
+          backgroundColor: '#002D80'
+        },
+        headerTintColor: '#FFF',
+        headerHideShadow: true,
+        headerHideBackButton: true
+      }}
+    />
     <Stack.Screen
       name="DeleteAccount"
       component={DeleteAccount}

@@ -9,20 +9,8 @@ import { ChangePasswordStackParamList } from './types';
 const Stack = createNativeStackNavigator<ChangePasswordStackParamList>();
 
 const ChangePasswordNavigator = () => (
-  <Stack.Navigator initialRouteName="EnterOlderAndNewPwd">
-    <Stack.Screen
-      name="EnterOlderAndNewPwd"
-      component={EnterOlderAndNewPwd}
-      options={{
-        headerTitle: 'Alterar senha',
-        headerStyle: {
-          backgroundColor: '#002D80'
-        },
-        headerTintColor: '#FFF',
-        headerHideShadow: true,
-        headerHideBackButton: true
-      }}
-    />
+  <Stack.Navigator initialRouteName="EnterOlderAndNewPwd" screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="EnterOlderAndNewPwd" component={EnterOlderAndNewPwd} />
     <Stack.Screen
       name="FinishChangePwd"
       component={FinishChangePwd}
