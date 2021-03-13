@@ -9,7 +9,10 @@ import { root } from '../types';
 
 import { DeleteAccountActionTypes } from './types';
 
-export const getClientId = (state: root): string => state.login.clientId;
+export const getClientId = (state: root): string => state.client.clientData.clientId;
+export const getAccountId = (state: root): string => state.client.accountData.accountId;
+export const getAddressId = (state: root): string | undefined => state.client.clientData.addressList[0].addressId;
+export const getTelephoneId = (state: root): string | undefined => state.client.clientData.telephoneList[0].telephoneId;
 
 export function* validatePassword(action: any) {
   const clientId: string = yield select(getClientId);
@@ -26,9 +29,9 @@ export function* validatePassword(action: any) {
 }
 
 export function* deleteAccount(clientId: string) {
+  const accountId: string = yield select(getAccountId);
+  
   try {
-    const accountPost = yield call(api('8082').get, `/clients/${clientId}/accounts`);
-    const accountId: string = accountPost.data[0].accountId;
     yield call(api('8082').delete, `/clients/${clientId}/accounts/${accountId}`);
     yield call(deleteAddress, clientId);
   } catch (error) {
@@ -39,9 +42,9 @@ export function* deleteAccount(clientId: string) {
 }
 
 export function* deleteAddress(clientId: string) {
+  const addressId: string = yield select(getAddressId);
+  
   try {
-    const addressPost = yield call(api().get, `/clients/${clientId}/addresses`);
-    const addressId: string = addressPost.data[0].addressId;
     yield call(api().delete, `/addresses/${addressId}`);
     yield call(deleteTelephone, clientId);
   } catch (error) {
@@ -52,9 +55,9 @@ export function* deleteAddress(clientId: string) {
 }
 
 export function* deleteTelephone(clientId: string) {
+  const telephoneId: string = yield select(getTelephoneId);
+  
   try {
-    const telephonePost = yield call(api().get, `/clients/${clientId}/telephones`);
-    const telephoneId: string = telephonePost.data[0].telephoneId;
     yield call(api().delete, `/clients/${clientId}/telephones/${telephoneId}`);
     yield call(deleteClient, clientId);
   } catch (error) {
