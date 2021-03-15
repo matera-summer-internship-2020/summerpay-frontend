@@ -5,7 +5,7 @@ export const passwordValidationAction = (payload: string) => ({
   type: PasswordActionTypes.VALIDATE_PASSWORD
 });
 
-export const changePasswordAction = (payload: string) => ({
+export const passwordChangeAction = (payload: string) => ({
   payload,
-  type: PasswordActionTypes.CHANGE_PASSWORD
+  type: PasswordActionTypes.PASSWORD_CHANGE
 });

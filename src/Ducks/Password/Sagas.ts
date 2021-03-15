@@ -49,5 +49,5 @@ export function* changePassword(action: any) {
 
 export const passwordSagas = all([
   takeLatest(PasswordActionTypes.VALIDATE_PASSWORD, validatePassword),
-  takeLatest(PasswordActionTypes.CHANGE_PASSWORD, changePassword)
+  takeLatest(PasswordActionTypes.PASSWORD_CHANGE, changePassword)
 ]);

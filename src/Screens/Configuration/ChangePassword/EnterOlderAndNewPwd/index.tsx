@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import ButtonComponent from '../../../../Components/ButtonComponent';
 import GenericInput from '../../../../Components/GenericInput';
-import { changePasswordAction, passwordValidationAction } from '../../../../Ducks/Password/Actions';
+import { passwordChangeAction, passwordValidationAction } from '../../../../Ducks/Password/Actions';
 import { PasswordActionTypes } from '../../../../Ducks/Password/types';
 import { CentralNavigationService } from '../../../../Services/Navigation';
 
@@ -51,7 +51,7 @@ const EnterOlderAndNewPwd: React.FunctionComponent = () => {
   };
 
   const onAlterButtonPress = (): void => {
-    dispatch(changePasswordAction(secondNewPwdInputValue));
+    dispatch(passwordChangeAction(secondNewPwdInputValue));
   };
 
   const firstNewPasswordStringValidator = (): string => {
