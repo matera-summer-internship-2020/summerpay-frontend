@@ -22,12 +22,15 @@ const DeleteAccount: React.FunctionComponent = () => {
   const [deleteConfirmation, setDeleteConfirmation] = React.useState<boolean>(false);
   const dispatch = useDispatch();
 
+  React.useEffect(() => {
+    if (passwordValidated) {
+      dispatch(deleteAccountAction());
+    }
+  }, [passwordValidated]);
+
   const onDeletePress = (): void => {
     if (deleteConfirmation) {
       dispatch(passwordValidationAction(passwordInput));
-      if (passwordValidated) {
-        dispatch(deleteAccountAction());
-      }
     } else {
       setDeleteConfirmation(true);
     }
