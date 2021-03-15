@@ -1,6 +1,5 @@
 import { DeleteAccountActionTypes } from './types';
 
-export const deleteAccountAction = (payload: { password: string }) => ({
-  payload,
+export const deleteAccountAction = () => ({
   type: DeleteAccountActionTypes.DELETE_ACCOUNT
 });
