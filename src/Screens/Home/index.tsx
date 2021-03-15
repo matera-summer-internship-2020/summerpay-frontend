@@ -1,23 +1,23 @@
 import { Container, Text, View } from 'native-base';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import Config from '../../Assets/Images/config.svg';
 import HomeAccountBackground from '../../Assets/Images/home-account-background.svg';
 import Money from '../../Assets/Images/money.svg';
 import AccountInfo from '../../Components/AccountInfo';
+import { root } from '../../Ducks/types';
 import { CentralNavigationService } from '../../Services/Navigation';
 import { AppStackParamList } from '../../types';
 
 import Styles from './styles';
 
 const Home: React.FunctionComponent = () => {
-  // Start of Static Example
-  const balance = 4532.12;
-  const accountNumber = '12345-1';
-  const agency = '000-1';
-  const name = 'Mariana Megumi';
-  // End Example
+  const agency: string = useSelector((state: root): string => state.client.accountData.agency);
+  const balance: string = useSelector((state: root): string => String(state.client.accountData.balance));
+  const accountNumber: string = useSelector((state: root): string => state.client.accountData.accountNumber);
+  const name: string = useSelector((state: root): string => state.client.clientData.name);
   const centralNavigationService = CentralNavigationService<AppStackParamList>();
   const [showOrHideValue, setShowOrHideValue] = React.useState<boolean>(false);
 
@@ -35,7 +35,7 @@ const Home: React.FunctionComponent = () => {
         </TouchableOpacity>
       </View>
       <View style={Styles().buttonsView}>
-        {/* Change button path to transfer */}
+        {/* TODO: Change button path to transfer */}
         <TouchableOpacity onPress={() => centralNavigationService.navigate('Home')} style={Styles().individualButton}>
           <Money />
           <Text>Transferir</Text>
